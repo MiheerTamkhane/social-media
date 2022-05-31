@@ -1,10 +1,9 @@
-import "./App.css";
-import logo from "./logo.png";
+import { RegisterPage } from "./frontend/pages";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div className="app">
+      <RegisterPage />
     </div>
   );
 }
