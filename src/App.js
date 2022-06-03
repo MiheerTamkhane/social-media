@@ -1,9 +1,8 @@
-import { RegisterPage } from "./frontend/pages";
-
+import { MyRoutes } from "./frontend/routes/MyRoutes";
 function App() {
   return (
-    <div className="app">
-      <RegisterPage />
+    <div className="app bg-gray-100 h-max">
+      <MyRoutes />
     </div>
   );
 }
