@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
   RegisterPage,
   Home,
@@ -11,7 +11,6 @@ import Mockman from "mockman-js";
 export const MyRoutes = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mock" element={<Mockman />} />
       <Route path="/" element={<Home page={<Feed />} />} />
