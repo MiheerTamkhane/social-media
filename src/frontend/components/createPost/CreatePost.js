@@ -6,36 +6,52 @@ const CreatePost = () => {
       <Tabs>
         <Tab title="Status">
           <textarea
-            name=""
-            id=""
+            name="status"
             cols="30"
             rows="5"
-            className="bg-gray-800 p-2 border-none outline-none tracking-wider"
+            className="bg-gray-800 p-2 border-none outline-none tracking-wider resize-none"
             placeholder="Hi Miheer Tamkhane! share your posts here"
           ></textarea>
         </Tab>
         <Tab title="Link">
-          The React Framework for Production Next.js gives you the best
-          developer experience with all the features you need for production:
-          hybrid static & server rendering, TypeScript support, smart bundling,
-          route pre-fetching, and more. No config needed.
+          <span>Text : </span>
+          <input
+            type="text"
+            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
+            placeholder="Hi Miheer Tamkhane! share your posts here"
+          />
+          <span>Link : </span>
+          <input
+            type="text"
+            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
+            placeholder="Paste link here"
+          />
         </Tab>
         <Tab title="Video">
-          The Intuitive Vue Framework Build your next Vue.js application with
-          confidence using NuxtJS. An open source framework making web
-          development simple and powerful.
+          <span>Text : </span>
+          <input
+            type="text"
+            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
+            placeholder="Hi Miheer Tamkhane! share your posts here"
+          />
+          <span>Link : </span>
+          <input
+            type="text"
+            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
+            placeholder="Paste link here"
+          />
         </Tab>
       </Tabs>
       <div>
         <button
           type="button"
-          class="focus:outline-none text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 absolute right-24 bottom-0"
+          className="focus:outline-none text-white bg-gray-800 hover:bg-gray-700 focus:ring-2 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:bg-gray-700 dark:focus:ring-gray-700 absolute right-24 bottom-1.5"
         >
           Discard
         </button>
         <button
           type="button"
-          class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 absolute right-6 bottom-0"
+          className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center absolute right-6 bottom-1.5"
         >
           Post
         </button>
@@ -49,7 +65,7 @@ const CreatePost = () => {
 const style = {
   notSelected: `text-gray-400`,
   default: `py-4 text-center border-gray-800 outline-none cursor-pointer px-4 inline-block text-gray-300 focus:outline-none w-1/3 `,
-  selected: `border-b-2 border-lime-500 text-white`,
+  selected: `border-b-4 border-lime-400 text-white`,
 };
 
 function Tabs({ children }) {

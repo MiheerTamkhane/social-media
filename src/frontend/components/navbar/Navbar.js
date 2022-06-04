@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-purple-700 font-['rajdhani']">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" className="flex items-center">
+        <NavLink to="/" className="flex items-center">
           {/* <img
             src="/docs/images/logo.svg"
             className="mr-3 h-6 sm:h-9"
@@ -14,8 +15,9 @@ export const Navbar = () => {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white tracking-wider">
             OtakuSurf
           </span>
-        </a>
-        <div className="flex md:order-2">
+        </NavLink>
+
+        <div className="flex md:order-2 gap-1">
           <button
             type="button"
             onClick={() => setExpanded((ex) => !ex)}
@@ -99,37 +101,52 @@ export const Navbar = () => {
           </div>
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
-              <a
-                href="#"
-                className="text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
-                aria-current="page"
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100  md:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:text-green-400 dark:border-gray-100 bg-purple-900 font-bold"
+                    : "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
+                }
               >
                 Home
-              </a>
+              </NavLink>
             </li>
+
             <li>
-              <a
-                href="#"
-                className="text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100  md:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:text-green-400 dark:border-gray-100 bg-purple-900 font-bold"
+                    : "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
+                }
               >
-                Groups
-              </a>
+                Profile
+              </NavLink>
             </li>
+
             <li>
-              <a
-                href="#"
-                className="text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
+              <NavLink
+                to="/bookmarks"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100  md:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:text-green-400 dark:border-gray-100 bg-purple-900 font-bold md:hidden"
+                    : "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium md:hidden"
+                }
               >
-                Forum
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium"
+                Bookmarks
+              </NavLink>
+              <NavLink
+                to="/explore"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100  md:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:text-green-400 dark:border-gray-100 bg-purple-900 font-bold md:hidden"
+                    : "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:hover:text-green-400 dark:hover:bg-purple-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-100 font-medium md:hidden"
+                }
               >
-                Blog
-              </a>
+                Explore
+              </NavLink>
             </li>
           </ul>
         </div>
