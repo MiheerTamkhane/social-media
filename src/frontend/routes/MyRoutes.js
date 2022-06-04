@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import {
   RegisterPage,
-  Home,
+  HomePage,
   ProfilePage,
   BookmarkPage,
   ExplorePage,
@@ -13,10 +13,10 @@ export const MyRoutes = () => {
     <Routes>
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mock" element={<Mockman />} />
-      <Route path="/" element={<Home page={<Feed />} />} />
-      <Route path="/profile" element={<Home page={<ProfilePage />} />} />
-      <Route path="/bookmarks" element={<Home page={<BookmarkPage />} />} />
-      <Route path="/explore" element={<Home page={<ExplorePage />} />} />
+      <Route path="/" element={<HomePage page={<Feed />} />} />
+      <Route path="/profile" element={<HomePage page={<ProfilePage />} />} />
+      <Route path="/bookmarks" element={<HomePage page={<BookmarkPage />} />} />
+      <Route path="/explore" element={<HomePage page={<ExplorePage />} />} />
     </Routes>
   );
 };

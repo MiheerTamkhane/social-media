@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Sidebar, Filter } from "../../components";
 
-export const Home = ({ page }) => {
+export const HomePage = ({ page }) => {
   return (
     <div>
       <Navbar />
