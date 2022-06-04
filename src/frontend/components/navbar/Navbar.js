@@ -149,6 +149,12 @@ export const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          <NavLink
+            to="/register"
+            className="mt-2 text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2 w-full"
+          >
+            Register
+          </NavLink>
         </div>
         <div className="hidden relative md:block w-2/5">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
