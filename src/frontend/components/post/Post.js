@@ -14,7 +14,7 @@ const Post = () => {
           <span className="text-xs text-gray-400">3 months ago</span>
         </div>
       </div>
-      <div className="h-48 border-b border-t border-gray-500  overflow-scroll scrollbar-hide px-6 pt-2 text-left text-base">
+      <div className="h-48 border-b border-t border-gray-500  overflow-scroll scrollbar-hide px-6 pt-2 text-left text-base text-sm">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
         aliquam quo distinctio voluptas perspiciatis, nostrum id cupiditate in
         corporis vitae maxime ut unde, cum doloremque tempore quaerat ullam
