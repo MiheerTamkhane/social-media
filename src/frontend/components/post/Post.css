@@ -1,0 +1,8 @@
+.btn-hover:hover .svg-change {
+  transition: all 500ms ease;
+  fill: #4ade80;
+  font-weight: bold;
+}
+.btn-hover:focus .svg-change {
+  fill: #4ade80;
+}

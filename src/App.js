@@ -1,10 +1,8 @@
-import "./App.css";
-import logo from "./logo.png";
-
+import { MyRoutes } from "./frontend/routes/MyRoutes";
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div className="app bg-gray-900 h-max">
+      <MyRoutes />
     </div>
   );
 }
