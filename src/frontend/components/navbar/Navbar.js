@@ -163,12 +163,12 @@ export const Navbar = () => {
               Logout
             </button>
           ) : (
-            <NavLink
-              to="/register"
+            <button
+              onClick={() => navigate("/register")}
               className="mt-2 text-white bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-gray-400 dark:focus:ring-gray-900 font-medium rounded-lg text-base px-5 py-2 text-center mr-2 mb-2 w-full"
             >
               Register
-            </NavLink>
+            </button>
           )}
         </div>
         <div className="hidden relative md:block w-2/5">
