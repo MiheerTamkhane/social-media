@@ -27,7 +27,7 @@ const Login = () => {
     navigate(from, { replace: true });
   };
   return (
-    <div className="w-5/6 p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center">
+    <div className="p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center">
       <h1 className="text-2xl mb-4 font-bold font-rajdhani text-gray-300 tracking-widest">
         Account Login
       </h1>

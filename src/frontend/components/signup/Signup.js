@@ -31,7 +31,7 @@ const Signup = () => {
     navigate(from, { replace: true });
   };
   return (
-    <div className="p-6 w-5/6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center">
+    <div className="p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center ">
       <h1 className="text-2xl mb-4 font-bold font-rajdhani text-gray-300 tracking-widest">
         Create Your Account
       </h1>
@@ -178,7 +178,7 @@ const Signup = () => {
         </div>
         <button
           type="submit"
-          className="w-full text-white hover:bg-purple-800 outline-none ring-2 ring-purple-700 rounded-md text-lg px-8 py-2  
+          className="w-80 text-white hover:bg-purple-800 outline-none ring-2 ring-purple-700 rounded-md text-lg px-8 py-2  
             dark:bg-purple-600
            dark:focus:ring-purple-600 dark:border-purple-600 transition-all font-bold"
         >

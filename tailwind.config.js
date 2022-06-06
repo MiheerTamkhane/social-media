@@ -7,6 +7,9 @@ module.exports = {
         rajdhani: ["Rajdhani", "sans-serif"],
         jost: ["Jost", "sans-serif"],
       },
+      backgroundImage: {
+        "register-bg": "url('/public/assets/register-bg.jpg')",
+      },
     },
     screens: {
       // => @media (min-width: ...) { ... }
