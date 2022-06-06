@@ -8,10 +8,13 @@ import { formatDate } from "../utils/authUtils";
 export const users = [
   {
     _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balika",
-    username: "adarshbalika",
-    password: "adarshBalika123",
+    firstName: "Miheer",
+    lastName: "Tamkhane",
+    username: "miheer",
+    password: "miheer@123",
+    avatarURL:
+      "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
+    bio: "The Kamehameha (かめはめ波は Kamehameha)",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 const ProfilePage = () => {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
       <div className="h-44">
@@ -9,7 +11,13 @@ const ProfilePage = () => {
 
       <div className="flex justify-center relative">
         <img
-          src="/assets/male.jpg"
+          src={
+            user
+              ? user.avatarURL
+                ? user.avatarURL
+                : "/assets/male.jpg"
+              : "/assets/male.jpg"
+          }
           alt="user-profile-img"
           className="rounded-full h-20 w-20 border-8 border-double border-gray-400 absolute -top-10"
         />
@@ -23,7 +31,9 @@ const ProfilePage = () => {
 
       <div>
         <div className="flex justify-center mt-10">
-          <h2 className="font-semibold ">Miheer Tamkhane</h2>
+          <h2 className="font-semibold ">
+            {user ? `${user.firstName} ${user.lastName}` : "Username"}
+          </h2>
         </div>
         <div className="flex justify-center gap-2 mt-1">
           <div className="flex flex-col items-center w-20">
@@ -40,9 +50,9 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="ml-4 pb-4 mt-2 w-5/6">
+          <h3 className="text-gray-300">@{user.username}</h3>
           <p className="font-['rajdhani'] tracking-wide">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quia
-            error harum corrupti veniam perspiciatis cupiditate officiis
+            {user ? user.bio : "Kahi pn"}
           </p>
           <a
             href="https://miheertamkhane.netlify.app"

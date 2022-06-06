@@ -1,21 +1,58 @@
 import { useState } from "react";
-
+import { useNavigate, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { loginThunk } from "../../features";
 const Login = () => {
+  const [userDetails, setUserDetails] = useState({
+    username: "",
+    password: "",
+  });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const loginHandler = async (userDeatils) => {
+    const res = await dispatch(loginThunk(userDeatils));
+    if (res?.payload?.encodedToken) {
+      localStorage.setItem("authToken", res.payload.encodedToken);
+      localStorage.setItem("user", JSON.stringify(res.payload.foundUser));
+    }
+    setUserDetails({
+      username: "",
+      password: "",
+    });
+    toast.success("Logged in successfully!");
+    navigate(from, { replace: true });
+  };
   return (
     <div className="w-5/6 p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center">
       <h1 className="text-2xl mb-4 font-bold font-rajdhani text-gray-300 tracking-widest">
         Account Login
       </h1>
-      <form className="w-full">
+      <form
+        className="w-full"
+        onSubmit={(e) => {
+          e.preventDefault();
+          loginHandler(userDetails);
+        }}
+      >
+        {/* */}
         <div className="form-group mb-6">
           <label
-            htmlFor="exampleInputEmail2"
+            htmlFor="username"
             className="form-label inline-block mb-2 text-gray-300"
           >
-            Email address
+            Username
           </label>
           <input
-            type="email"
+            required
+            onChange={(e) =>
+              setUserDetails({ ...userDetails, username: e.target.value })
+            }
+            value={userDetails.username}
+            type="text"
             className="form-control
         block
         w-full
@@ -31,19 +68,24 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            id="exampleInputEmail2"
+            id="username"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="Username"
           />
         </div>
         <div className="form-group mb-6">
           <label
-            htmlFor="exampleInputPassword2"
+            htmlFor="password"
             className="form-label inline-block mb-2 text-gray-300"
           >
             Password
           </label>
           <input
+            required
+            onChange={(e) =>
+              setUserDetails({ ...userDetails, password: e.target.value })
+            }
+            value={userDetails.password}
             type="password"
             className="form-control block
         w-full
@@ -59,7 +101,7 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            id="exampleInputPassword2"
+            id="password"
             placeholder="Password"
           />
         </div>
@@ -68,11 +110,11 @@ const Login = () => {
             <input
               type="checkbox"
               className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-              id="exampleCheck2"
+              id="checkbox"
             />
             <label
               className="form-check-label inline-block text-gray-300"
-              htmlFor="exampleCheck2"
+              htmlFor="checkbox"
             >
               Remember me
             </label>
@@ -91,7 +133,19 @@ const Login = () => {
                 dark:bg-purple-600
                dark:focus:ring-purple-600 dark:border-purple-600 transition-all font-bold"
         >
-          Sign In
+          Login
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            loginHandler({ username: "miheer", password: "miheer@123" });
+          }}
+          className="w-full mt-3 text-white hover:bg-gray-800 outline-none ring-2 ring-gray-700 rounded-md text-lg px-8 py-2  
+                dark:bg-gray-600
+               dark:focus:ring-gray-600 dark:border-gray-600 transition-all font-bold"
+        >
+          Login as guest
         </button>
 
         <div className="flex justify-center items-center flex-wrap space-x-2 mt-6">

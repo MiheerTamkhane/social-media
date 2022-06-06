@@ -7,6 +7,7 @@ import {
   ExplorePage,
 } from "../pages";
 import { Feed } from "../components";
+import { PrivateRoutes } from "./PrivateRoutes";
 import Mockman from "mockman-js";
 export const MyRoutes = () => {
   return (
@@ -14,9 +15,14 @@ export const MyRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mock" element={<Mockman />} />
       <Route path="/" element={<HomePage page={<Feed />} />} />
-      <Route path="/profile" element={<HomePage page={<ProfilePage />} />} />
-      <Route path="/bookmarks" element={<HomePage page={<BookmarkPage />} />} />
-      <Route path="/explore" element={<HomePage page={<ExplorePage />} />} />
+      <Route element={<PrivateRoutes />}>
+        <Route path="/profile" element={<HomePage page={<ProfilePage />} />} />
+        <Route
+          path="/bookmarks"
+          element={<HomePage page={<BookmarkPage />} />}
+        />
+        <Route path="/explore" element={<HomePage page={<ExplorePage />} />} />
+      </Route>
     </Routes>
   );
 };

@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { logout } from "../../features";
 export const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-purple-700 font-['rajdhani']">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 font-['rajdhani'] bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <NavLink to="/" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white tracking-wider">
@@ -144,12 +149,27 @@ export const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <NavLink
-            to="/register"
-            className="mt-2 text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2 w-full"
-          >
-            REGISTER
-          </NavLink>
+          {user ? (
+            <button
+              onClick={() => {
+                dispatch(logout());
+                toast("Bye, Logout successfully!", {
+                  icon: "👋",
+                });
+                navigate("/register", { replace: true });
+              }}
+              className="mt-2 text-white bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-gray-400 dark:focus:ring-gray-900 font-medium rounded-lg text-base px-5 py-2 text-center mr-2 mb-2 w-full"
+            >
+              Logout
+            </button>
+          ) : (
+            <NavLink
+              to="/register"
+              className="mt-2 text-white bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-gray-400 dark:focus:ring-gray-900 font-medium rounded-lg text-base px-5 py-2 text-center mr-2 mb-2 w-full"
+            >
+              Register
+            </NavLink>
+          )}
         </div>
         <div className="hidden relative md:block w-2/5">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">

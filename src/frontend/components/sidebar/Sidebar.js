@@ -1,17 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export const Sidebar = () => {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <aside className="w-72">
-      <div className="overflow-y-auto p-4  bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
+      <div className="overflow-y-auto p-4 bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
         <NavLink to="/profile" className="flex items-center pl-2.5 mb-5">
           <img
-            src="/assets/male.jpg"
+            src={
+              user
+                ? user.avatarURL
+                  ? user.avatarURL
+                  : "/assets/male.jpg"
+                : "/assets/male.jpg"
+            }
             className="mr-2 rounded-full h-14 w-14"
             alt="Otakusurf user"
           />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            Username
+            {user ? user.username : "User"}
           </span>
         </NavLink>
         <ul className="space-y-2">
@@ -28,12 +37,7 @@ export const Sidebar = () => {
                 className="h-5 fill-gray-400  text-white"
                 viewBox="0 0 22 22"
               >
-                <g
-                  id="🔍-Product-Icons"
-                  stroke="none"
-                  strokeWidth="1"
-                  fillRule="evenodd"
-                >
+                <g stroke="none" strokeWidth="1" fillRule="evenodd">
                   <g
                     id="ic_fluent_broad_activity_feed_24_filled"
                     fillRule="nonzero"
@@ -109,26 +113,7 @@ export const Sidebar = () => {
               <span className="flex-1 ml-3 whitespace-nowrap">Bookmarks</span>
             </NavLink>
           </li>
-          <li>
-            <a
-              href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
-              <svg
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
-                <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
-              </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">Inbox</span>
-              <span className="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-purple-200 bg-purple-200 rounded-full dark:bg-purple-600 dark:text-purple-200">
-                3
-              </span>
-            </a>
-          </li>
+
           <li>
             <NavLink
               to="/profile"
