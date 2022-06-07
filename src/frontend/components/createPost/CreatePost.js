@@ -80,10 +80,10 @@ function Tabs({ children }) {
     <nav className="">
       {childrenArray.map((child) => (
         <div
+          key={child?.key}
           role="link"
           tabIndex={0}
           onClick={() => setCurrent(child?.key)}
-          key={child?.key}
           className={`${style.default} ${
             current === child?.key ? style.selected : style.notSelected
           }`}
