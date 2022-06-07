@@ -9,7 +9,6 @@ const initialState = {
   status: null,
   error: null,
 };
-console.log("single user : ", initialState);
 const getSingleUser = createAsyncThunk(
   "user/getSingleUser",
   async (username, { rejectWithValue }) => {

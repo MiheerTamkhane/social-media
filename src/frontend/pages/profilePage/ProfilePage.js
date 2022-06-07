@@ -5,13 +5,11 @@ import { getSingleUser, clearUser } from "../../features";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const { user: newUser } = useSelector((state) => state.singleUser);
-  // const { user: newUser } = useSelector((state) => state.auth);
   const { username } = useParams();
-  // console.log(username);
   useEffect(() => {
     dispatch(getSingleUser(username));
 
-    // return () => dispatch(clearUser());
+    return () => dispatch(clearUser());
   }, [dispatch, username]);
   return (
     <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
