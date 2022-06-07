@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getSingleUser } from "../../features";
+import { getSingleUser, clearUser } from "../../features";
 const ProfilePage = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.singleUser);
+  const { user: newUser } = useSelector((state) => state.singleUser);
+  // const { user: newUser } = useSelector((state) => state.auth);
   const { username } = useParams();
+  // console.log(username);
   useEffect(() => {
     dispatch(getSingleUser(username));
-  }, []);
+
+    // return () => dispatch(clearUser());
+  }, [dispatch, username]);
   return (
     <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
       <div className="h-44">
@@ -17,13 +21,7 @@ const ProfilePage = () => {
 
       <div className="flex justify-center relative">
         <img
-          src={
-            user
-              ? user.avatarURL
-                ? user.avatarURL
-                : "/assets/male.jpg"
-              : "/assets/male.jpg"
-          }
+          src={newUser?.avatarURL ? newUser?.avatarURL : "/assets/male.jpg"}
           alt="user-profile-img"
           className="rounded-full h-20 w-20 border-8 border-double border-gray-400 absolute -top-10"
         />
@@ -38,13 +36,15 @@ const ProfilePage = () => {
       <div>
         <div className="flex justify-center mt-10">
           <h2 className="font-semibold ">
-            {user ? `${user?.firstName} ${user?.lastName}` : "Username"}
+            {newUser?.firstName
+              ? `${newUser?.firstName} ${newUser?.lastName}`
+              : "Username"}
           </h2>
         </div>
         <div className="flex justify-center gap-2 mt-1">
           <div className="flex flex-col items-center w-20 cursor-pointer">
             <span className="text-lg font-semibold font-['rajdhani']">
-              {user ? user?.followers?.length : "0"}
+              {newUser?.followers?.length ? newUser?.followers?.length : "0"}
             </span>
             <span className="text-xs text-gray-400">Followers</span>
           </div>
@@ -55,22 +55,22 @@ const ProfilePage = () => {
           <div className="flex flex-col items-center w-20 cursor-pointer">
             <span className="text-lg font-semibold font-['rajdhani']">
               {" "}
-              {user ? user?.following?.length : "0"}
+              {newUser?.following?.length ? newUser?.following?.length : "0"}
             </span>
             <span className="text-xs text-gray-400">Following</span>
           </div>
         </div>
         <div className="ml-4 pb-4 mt-2 w-5/6">
-          <h3 className="text-gray-300">@{user.username}</h3>
+          <h3 className="text-gray-300">@{newUser?.username}</h3>
           <p className="font-['rajdhani'] tracking-wide">
-            {user.bio ?? "Your Bio"}
+            {newUser?.bio ?? "Your Bio"}
           </p>
           <a
-            href={user.website ?? "https://www.google.com"}
+            href={newUser?.website ?? "https://www.google.com"}
             className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
             target="_blank"
           >
-            {user.website ?? "Website"}
+            {newUser?.website ?? "Website"}
           </a>
         </div>
       </div>

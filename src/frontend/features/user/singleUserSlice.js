@@ -9,6 +9,7 @@ const initialState = {
   status: null,
   error: null,
 };
+console.log("single user : ", initialState);
 const getSingleUser = createAsyncThunk(
   "user/getSingleUser",
   async (username, { rejectWithValue }) => {
@@ -16,6 +17,7 @@ const getSingleUser = createAsyncThunk(
       const { data } = await axios.get(`/api/users/${username}`);
       return data;
     } catch (err) {
+      console.log(err);
       return rejectWithValue("User not found");
     }
   }
@@ -24,7 +26,12 @@ const getSingleUser = createAsyncThunk(
 const singleUserSlice = createSlice({
   name: "singleUser",
   initialState,
-  reducers: {},
+  reducers: {
+    clearUser: (state) => {
+      state.status = "idle";
+      state.user = null;
+    },
+  },
   extraReducers: {
     [getSingleUser.pending]: (state) => {
       state.isLoading = true;
@@ -44,4 +51,5 @@ const singleUserSlice = createSlice({
 });
 
 export const singleUserReducer = singleUserSlice.reducer;
+export const { clearUser } = singleUserSlice.actions;
 export { getSingleUser };

@@ -3,27 +3,21 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export const Sidebar = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.singleUser);
 
   return (
     <aside className="w-72">
       <div className="overflow-y-auto p-4 bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
-        <NavLink to="/profile" className="flex items-center pl-2.5 mb-5">
+        <div className="flex items-center pl-2.5 mb-5">
           <img
-            src={
-              user
-                ? user.avatarURL
-                  ? user.avatarURL
-                  : "/assets/male.jpg"
-                : "/assets/male.jpg"
-            }
+            src={user?.avatarURL ? user?.avatarURL : "/assets/male.jpg"}
             className="mr-2 rounded-full h-14 w-14"
             alt="Otakusurf user"
           />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            {user ? user.username : "User"}
+            {user?.username ? user?.username : "Username"}
           </span>
-        </NavLink>
+        </div>
         <ul className="space-y-2">
           <li>
             <NavLink

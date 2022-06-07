@@ -24,7 +24,7 @@ const signupThunk = createAsyncThunk(
   "user/signup",
   async (userDeatils, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/api/auth/signup", { ...userDeatils });
+      const { data } = await axios.post("/api/auth/signup", userDeatils);
       return data;
     } catch (err) {
       return rejectWithValue("Can't Signin sorry!");
