@@ -15,7 +15,6 @@ const loginThunk = createAsyncThunk(
       const { data } = await axios.post("/api/auth/login", user);
       return data;
     } catch (err) {
-      console.error(err.message);
       rejectWithValue(err);
     }
   }
@@ -28,7 +27,6 @@ const signupThunk = createAsyncThunk(
       const { data } = await axios.post("/api/auth/signup", { ...userDeatils });
       return data;
     } catch (err) {
-      console.error(err.message);
       rejectWithValue(err);
     }
   }
