@@ -14,22 +14,24 @@ const Post = () => {
           <span className="text-xs text-gray-400">3 months ago</span>
         </div>
       </div>
-      <div className="h-48 border-b border-t border-gray-500  overflow-scroll scrollbar-hide px-6 pt-2 text-left text-sm">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-        aliquam quo distinctio voluptas perspiciatis, nostrum id cupiditate in
-        corporis vitae maxime ut unde, cum doloremque tempore quaerat ullam
-        earum eaque repellendus dignissimos? Nemo corrupti quod provident
-        inventore ab est incidunt labore porro adipisci odit quidem eaque ullam
-        vitae fuga dignissimos impedit consequuntur voluptate consequatur modi
-        quaerat, vel velit repudiandae eum necessitatibus. Repudiandae quod eius
-        nemo ex nisi totam minus ipsa Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Tempore, velit adipisci. Voluptatem, similique eos nam
-        nesciunt numquam enim quam ut illo, ducimus distinctio recusandae
-        veritatis et magni consequatur corrupti nisi? minima molestias
-        voluptate. Ipsum laborum, sint tempora ullam cumque reprehenderit modi
-        exercitationem repellat repudiandae distinctio provident hic animi,
-        dignissimos magnam molestias eligendi fugit odio saepe dolor recusandae
-        asperiores impedit reiciendis?
+      <div className=" h-fit border-b border-t border-gray-500 text-left text-md font-['rajdhani'] leading-6 flex flex-col items-center">
+        <p className="px-6 py-2">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
+          aliquam quo distinctio voluptas perspiciatis, nostrum id cupiditate in
+          corporis vitae maxime ut unde, cum doloremque tempore quaerat ullam
+          earum eaque repellendus dignissimos? Nemo corrupti quod provident
+          inventore ab est incidunt labore porro adipisci odit quidem eaque
+          ullam vitae fuga dignissimos impedit consequuntur voluptate
+          consequatur modi quaerat, vel velit repudiandae eum necessitatibus.
+          Repudiandae quod eius nemo ex nisi totam minus ipsa Lorem ipsum dolor
+          sit amet consectetur adipisicing elit.
+        </p>
+        {/* This feature will add soon  */}
+        {/* <img
+          className=" object-cover w-full h-full  "
+          src="https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg"
+          alt=""
+        /> */}
       </div>
       <div className="p-3 w-full flex justify-around">
         <button

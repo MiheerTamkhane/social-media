@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import toast from "react-hot-toast";
 const initialState = {
   user: JSON.parse(localStorage.getItem("user")) ?? null,
   authToken: localStorage.getItem("authToken") || "",
@@ -15,7 +15,7 @@ const loginThunk = createAsyncThunk(
       const { data } = await axios.post("/api/auth/login", user);
       return data;
     } catch (err) {
-      rejectWithValue(err);
+      return rejectWithValue("User with these credentials not found");
     }
   }
 );
@@ -27,7 +27,7 @@ const signupThunk = createAsyncThunk(
       const { data } = await axios.post("/api/auth/signup", { ...userDeatils });
       return data;
     } catch (err) {
-      rejectWithValue(err);
+      return rejectWithValue("Can't Signin sorry!");
     }
   }
 );
@@ -53,7 +53,8 @@ const authSlice = createSlice({
     },
     [loginThunk.rejected]: (state, { payload }) => {
       state.status = "rejected";
-      state.error = payload.error;
+      state.error = payload;
+      toast.error(state.error);
     },
     [signupThunk.pending]: (state) => {
       state.status = "loading";
@@ -66,6 +67,7 @@ const authSlice = createSlice({
     [signupThunk.rejected]: (state, { payload }) => {
       state.status = "rejected";
       state.error = payload.error;
+      toast.error(state.error);
     },
   },
 });

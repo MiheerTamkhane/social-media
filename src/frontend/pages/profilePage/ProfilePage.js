@@ -1,8 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getSingleUser } from "../../features";
 const ProfilePage = () => {
-  const { user } = useSelector((state) => state.auth);
-
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.singleUser);
+  const { username } = useParams();
+  useEffect(() => {
+    dispatch(getSingleUser(username));
+  }, []);
   return (
     <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
       <div className="h-44">
@@ -32,34 +38,39 @@ const ProfilePage = () => {
       <div>
         <div className="flex justify-center mt-10">
           <h2 className="font-semibold ">
-            {user ? `${user.firstName} ${user.lastName}` : "Username"}
+            {user ? `${user?.firstName} ${user?.lastName}` : "Username"}
           </h2>
         </div>
         <div className="flex justify-center gap-2 mt-1">
-          <div className="flex flex-col items-center w-20">
-            <span className="text-lg font-semibold font-['rajdhani']">0</span>
+          <div className="flex flex-col items-center w-20 cursor-pointer">
+            <span className="text-lg font-semibold font-['rajdhani']">
+              {user ? user?.followers?.length : "0"}
+            </span>
             <span className="text-xs text-gray-400">Followers</span>
           </div>
-          <div className="flex flex-col items-center w-20">
+          <div className="flex flex-col items-center w-20 cursor-pointer">
             <span className="text-lg font-semibold font-['rajdhani']">0</span>
             <span className="text-xs text-gray-400">Posts</span>
           </div>
-          <div className="flex flex-col items-center w-20">
-            <span className="text-lg font-semibold font-['rajdhani']">0</span>
+          <div className="flex flex-col items-center w-20 cursor-pointer">
+            <span className="text-lg font-semibold font-['rajdhani']">
+              {" "}
+              {user ? user?.following?.length : "0"}
+            </span>
             <span className="text-xs text-gray-400">Following</span>
           </div>
         </div>
         <div className="ml-4 pb-4 mt-2 w-5/6">
           <h3 className="text-gray-300">@{user.username}</h3>
           <p className="font-['rajdhani'] tracking-wide">
-            {user ? user.bio : "Kahi pn"}
+            {user.bio ?? "Your Bio"}
           </p>
           <a
-            href="https://miheertamkhane.netlify.app"
+            href={user.website ?? "https://www.google.com"}
             className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
             target="_blank"
           >
-            https://miheertamkhane.netlify.app
+            {user.website ?? "Website"}
           </a>
         </div>
       </div>

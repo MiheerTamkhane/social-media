@@ -12,7 +12,7 @@ export const HomePage = ({ page }) => {
           {page}
         </div>
         <div className="maxmidmd:hidden ">
-          <Filter />
+          {page.type.name !== "ProfilePage" && <Filter />}
         </div>
       </div>
     </div>
