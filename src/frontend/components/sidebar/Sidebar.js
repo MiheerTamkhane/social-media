@@ -111,7 +111,7 @@ export const Sidebar = () => {
 
           <li>
             <NavLink
-              to={`/profile/${user.username}`}
+              to={`/profile/${user?.username}`}
               className={({ isActive }) =>
                 isActive
                   ? "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-gray-300 bg-gray-700"
