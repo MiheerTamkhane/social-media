@@ -6,7 +6,9 @@ const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state.users);
+  console.log(data);
   const { user } = useSelector((state) => state.auth);
+  console.log(user);
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
@@ -42,9 +44,9 @@ const Filter = () => {
           </select>
         </div>
         <div className="mt-6 flex flex-col gap-3">
-          {data.users.map(({ _id, avatarURL, username }) => {
+          {data?.users.map(({ _id, avatarURL, username }) => {
             return (
-              user.username !== username && (
+              user?.username !== username && (
                 <div
                   key={_id}
                   className="p-2 flex w-full items-center relative border rounded border-gray-500"
