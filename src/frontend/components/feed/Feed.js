@@ -7,8 +7,7 @@ import { sortPosts, getUserFeed } from "../../utils";
 const Feed = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.allPosts);
-  const { user } = useSelector((state) => state.auth);
-  const { following, username } = user;
+  const { following, username } = useSelector((state) => state.auth?.user);
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
@@ -20,7 +19,7 @@ const Feed = () => {
     <div className="bg-gray-900">
       <CreatePost />
       <div className="mt-4 gap-4 flex flex-col">
-        {userFeed.map((post) => {
+        {userFeed?.map((post) => {
           return <Post key={post._id} post={post} />;
         })}
       </div>
