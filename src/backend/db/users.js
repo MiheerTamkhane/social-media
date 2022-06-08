@@ -20,7 +20,7 @@ export const users = [
         lastName: "Tarapure",
         username: "Neo_MonkStar",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
+          "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
       {
         _id: uuid(),
@@ -160,7 +160,7 @@ export const users = [
         lastName: "Tamkhane",
         username: "miheertamkhane",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1479650839660675075/B3bwE2Yk_400x400.jpg",
+          "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
       {
         _id: uuid(),
@@ -194,7 +194,7 @@ export const users = [
         lastName: "Tamkhane",
         username: "miheertamkhane",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1479650839660675075/B3bwE2Yk_400x400.jpg",
+          "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
       {
         _id: uuid(),
@@ -212,7 +212,7 @@ export const users = [
         lastName: "Tamkhane",
         username: "miheertamkhane",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1479650839660675075/B3bwE2Yk_400x400.jpg",
+          "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
       {
         _id: uuid(),

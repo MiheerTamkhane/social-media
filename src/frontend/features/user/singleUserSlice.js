@@ -3,8 +3,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const initialState = {
-  user: [],
-  posts: [],
+  user: null,
+  posts: null,
   isLoading: false,
   status: null,
   error: null,
@@ -22,13 +22,35 @@ const getSingleUser = createAsyncThunk(
   }
 );
 
+const getUserAllPosts = createAsyncThunk(
+  "user/getUserAllPosts",
+  async (username, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/api/posts/user/${username}`);
+      return data;
+    } catch (err) {
+      return rejectWithValue("Post not found!");
+    }
+  }
+);
+const getUserAllPostsById = createAsyncThunk(
+  "user/getUserAllPostsById",
+  async (userId, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/api/posts/${userId}`);
+      return data;
+    } catch (err) {
+      return rejectWithValue("Post not found!");
+    }
+  }
+);
+
 const singleUserSlice = createSlice({
   name: "singleUser",
   initialState,
   reducers: {
     clearUser: (state) => {
-      state.status = "idle";
-      state.user = null;
+      state = initialState;
     },
   },
   extraReducers: {
@@ -46,9 +68,35 @@ const singleUserSlice = createSlice({
       state.status = "rejected";
       toast.error(state.error);
     },
+    [getUserAllPosts.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getUserAllPosts.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+      state.status = "success";
+    },
+    [getUserAllPosts.pending]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+      state.status = "rejected";
+    },
+    [getUserAllPostsById.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getUserAllPostsById.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+      state.status = "success";
+    },
+    [getUserAllPostsById.pending]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+      state.status = "rejected";
+    },
   },
 });
 
 export const singleUserReducer = singleUserSlice.reducer;
 export const { clearUser } = singleUserSlice.actions;
-export { getSingleUser };
+export { getSingleUser, getUserAllPosts, getUserAllPostsById };

@@ -1,31 +1,27 @@
 import React from "react";
+import dayjs from "dayjs";
 import "./Post.css";
-const Post = () => {
+const Post = ({ post }) => {
+  const { username, content, avatarURL, createdAt } = post;
   return (
     <div className="h-fit min-h-96 rounded-lg bg-gray-800 text-white">
       <div className="p-2 ml-4 flex w-full items-center">
         <img
-          src="/assets/male.jpg"
+          src={avatarURL}
           className="mr-1 rounded-full h-10 w-10"
           alt="Otakusurf user"
         />
         <div className="flex flex-col">
-          <span className="text-lg tracking-wide font-['jost']">Username</span>
-          <span className="text-xs text-gray-400">3 months ago</span>
+          <span className="text-lg tracking-wide font-['jost']">
+            {username}
+          </span>
+          <span className="text-xs text-gray-400">
+            {/* {dayjs(Date.parse(createdAt), "YYYYMMDD").fromNow()} */}
+          </span>
         </div>
       </div>
-      <div className=" h-fit border-b border-t border-gray-500 text-left text-md font-['rajdhani'] leading-6 flex flex-col items-center">
-        <p className="px-6 py-2">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-          aliquam quo distinctio voluptas perspiciatis, nostrum id cupiditate in
-          corporis vitae maxime ut unde, cum doloremque tempore quaerat ullam
-          earum eaque repellendus dignissimos? Nemo corrupti quod provident
-          inventore ab est incidunt labore porro adipisci odit quidem eaque
-          ullam vitae fuga dignissimos impedit consequuntur voluptate
-          consequatur modi quaerat, vel velit repudiandae eum necessitatibus.
-          Repudiandae quod eius nemo ex nisi totam minus ipsa Lorem ipsum dolor
-          sit amet consectetur adipisicing elit.
-        </p>
+      <div className=" h-40  border-b border-t border-gray-500 text-left text-md font-['rajdhani'] leading-6 flex flex-col ">
+        <p className="px-6 py-2">{content}</p>
         {/* This feature will add soon  */}
         {/* <img
           className=" object-cover w-full h-full  "
