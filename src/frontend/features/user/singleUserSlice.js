@@ -16,7 +16,6 @@ const getSingleUser = createAsyncThunk(
       const { data } = await axios.get(`/api/users/${username}`);
       return data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue("User not found");
     }
   }
