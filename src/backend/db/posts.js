@@ -73,7 +73,7 @@ export const posts = [
     lastName: "Tamkhane",
     avatarURL:
       "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
-    createdAt: formatDate(),
+    createdAt: "06/08/2022".toString(),
     updatedAt: formatDate(),
   },
 
@@ -123,7 +123,7 @@ export const posts = [
     lastName: "Tamkhane",
     avatarURL:
       "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
-    createdAt: formatDate(),
+    createdAt: "06/07/2022".toString(),
     updatedAt: formatDate(),
   },
 
@@ -160,7 +160,7 @@ export const posts = [
     username: "horsemaker",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
-    createdAt: formatDate(),
+    createdAt: "06/03/2022".toString(),
     updatedAt: formatDate(),
     comments: [
       {
@@ -219,7 +219,7 @@ export const posts = [
     username: "prathmesh_20",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
-    createdAt: formatDate(),
+    createdAt: "06/01/2022".toString(),
     updatedAt: formatDate(),
     comments: [
       {
@@ -270,7 +270,7 @@ export const posts = [
     username: "vijaytembugade",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
-    createdAt: formatDate(),
+    createdAt: "05/28/2022".toString(),
     updatedAt: formatDate(),
     comments: [
       {

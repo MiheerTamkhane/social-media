@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../features";
 const CreatePost = () => {
@@ -13,8 +14,13 @@ const CreatePost = () => {
     content: "",
   });
   const dispatch = useDispatch();
-  async function postSubmitHandler(postData, authToken) {
-    await dispatch(createPost({ postData, authToken }));
+  function postSubmitHandler(postData, authToken) {
+    if (postData.content !== "") {
+      dispatch(createPost({ postData, authToken }));
+      toast.success("Your status updated!");
+    } else {
+      toast.error("Fill the field!");
+    }
     setUserPost({
       avatarURL,
       firstName,
@@ -25,7 +31,7 @@ const CreatePost = () => {
     });
   }
   return (
-    <div className="bg-gray-800 rounded-lg h-72 font-['rajdhani'] relative">
+    <div className="bg-gray-800 rounded-lg h-80 font-['rajdhani'] relative">
       <Tabs>
         <Tab title="Status">
           <textarea
@@ -34,9 +40,7 @@ const CreatePost = () => {
             }
             value={userPost.content}
             name="status"
-            cols="30"
-            rows="5"
-            className="bg-gray-800 p-2 border-none outline-none tracking-wider resize-none"
+            className="h-48 w-full bg-gray-800 px-2 border-none outline-none tracking-wider resize-none scrollbar-hide"
             placeholder="Hi Miheer Tamkhane! share your posts here"
           ></textarea>
         </Tab>
@@ -133,7 +137,7 @@ function Tab({ children, selected }) {
   return (
     <div
       hidden={!selected}
-      className="pt-3 px-2 border-t h-44 border-b text-gray-100 border-gray-500"
+      className="pt-3 px-2 border-t h-52 border-b text-gray-100 border-gray-500"
     >
       {children}
     </div>

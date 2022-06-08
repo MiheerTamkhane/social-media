@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getSingleUser, clearUser, getUserAllPosts } from "../../features";
+import { getSingleUser, getUserAllPosts } from "../../features";
 import { Post } from "../../components";
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,7 @@ const ProfilePage = () => {
   useEffect(() => {
     dispatch(getSingleUser(username));
     dispatch(getUserAllPosts(username));
-    return () => dispatch(clearUser());
-  }, [dispatch, username]);
+  }, [dispatch, username, posts, user]);
   return (
     <div>
       <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
