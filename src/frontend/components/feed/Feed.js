@@ -12,7 +12,7 @@ const Feed = () => {
   } = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(getAllPosts());
-  }, [posts, username]);
+  }, [posts]);
 
   const sortedPosts = getUserFeed(posts, following, username);
   const userFeed = sortPosts(sortedPosts);
