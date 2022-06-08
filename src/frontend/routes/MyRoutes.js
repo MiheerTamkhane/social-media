@@ -15,8 +15,15 @@ export const MyRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mock" element={<Mockman />} />
       <Route path="/" element={<HomePage page={<Feed />} />} />
+      <Route
+        path="/profile/:username"
+        element={<HomePage page={<ProfilePage />} />}
+      />
       <Route element={<PrivateRoutes />}>
-        <Route path="/profile" element={<HomePage page={<ProfilePage />} />} />
+        <Route
+          path="/profile/:username"
+          element={<HomePage page={<ProfilePage />} />}
+        />
         <Route
           path="/bookmarks"
           element={<HomePage page={<BookmarkPage />} />}

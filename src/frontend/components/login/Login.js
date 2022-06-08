@@ -18,13 +18,13 @@ const Login = () => {
     if (res?.payload?.encodedToken) {
       localStorage.setItem("authToken", res.payload.encodedToken);
       localStorage.setItem("user", JSON.stringify(res.payload.foundUser));
+      toast.success("Logged in successfully!");
+      setUserDetails({
+        username: "",
+        password: "",
+      });
+      navigate(from, { replace: true });
     }
-    setUserDetails({
-      username: "",
-      password: "",
-    });
-    toast.success("Logged in successfully!");
-    navigate(from, { replace: true });
   };
   return (
     <div className="p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center">

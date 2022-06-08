@@ -115,7 +115,7 @@ export const Navbar = () => {
 
             <li>
               <NavLink
-                to="/profile"
+                to={`/profile/${user?.username}`}
                 className={({ isActive }) =>
                   isActive
                     ? "text-lg block py-2 pr-4 pl-3 text-white-100 border-b border-gray-100  md:bg-transparent md:border-0  md:p-0 dark:text-gray-100 md:dark:text-green-400 dark:border-gray-100 bg-purple-900 font-bold"

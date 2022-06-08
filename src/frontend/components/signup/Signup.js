@@ -16,19 +16,18 @@ const Signup = () => {
   const dispatch = useDispatch();
   const signupHandler = async (userDetails) => {
     const res = await dispatch(signupThunk(userDetails));
-
     if (res?.payload?.encodedToken) {
       localStorage.setItem("authToken", res.payload.encodedToken);
       localStorage.setItem("user", JSON.stringify(res.payload.createdUser));
+      toast.success("Signin successfully!");
+      setUserDetails({
+        firstName: "",
+        lastName: "",
+        username: "",
+        password: "",
+      });
+      navigate(from, { replace: true });
     }
-    setUserDetails({
-      firstName: "",
-      lastName: "",
-      username: "",
-      password: "",
-    });
-    toast.success("Signin successfully!");
-    navigate(from, { replace: true });
   };
   return (
     <div className="p-6 rounded-lg shadow-lg bg-gray-900  flex flex-col items-center ">
