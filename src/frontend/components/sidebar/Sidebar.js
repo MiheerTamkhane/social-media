@@ -9,12 +9,12 @@ export const Sidebar = () => {
       <div className="overflow-y-auto p-4 bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
         <div className="flex items-center pl-2.5 mb-5">
           <img
-            src={user?.avatarURL ? user?.avatarURL : "/assets/male.jpg"}
+            src={user?.avatarURL || "/assets/male.jpg"}
             className="mr-2 rounded-full h-14 w-14"
-            alt="Otakusurf user"
+            alt={`${user?.username}-avatar`}
           />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            {user?.username ? user?.username : "Username"}
+            {user?.username || "Username"}
           </span>
         </div>
         <ul className="space-y-2">

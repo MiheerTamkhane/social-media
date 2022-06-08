@@ -6,9 +6,7 @@ const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state.users);
-  console.log(data);
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
@@ -58,7 +56,7 @@ const Filter = () => {
                     <img
                       src={avatarURL ? avatarURL : "/assets/male.jpg"}
                       className="mr-2 rounded-full h-10 w-10"
-                      alt="Otakusurf user"
+                      alt={`${username}-avatar`}
                     />
                     <span className="text-md tracking-wide font-['jost'] cursor-pointer">
                       {username}
