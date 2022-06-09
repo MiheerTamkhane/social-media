@@ -6,11 +6,15 @@ import { Post } from "../../components";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const { user, posts } = useSelector((state) => state.singleUser);
+  const { posts: allPosts } = useSelector((state) => state.allPosts);
   const { username } = useParams();
   useEffect(() => {
     dispatch(getSingleUser(username));
+  }, []);
+  useEffect(() => {
+    console.log("useeffcts");
     dispatch(getUserAllPosts(username));
-  }, [dispatch, username, posts, user]);
+  }, [allPosts]);
   return (
     <div>
       <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">

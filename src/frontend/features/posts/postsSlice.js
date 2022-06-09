@@ -7,18 +7,10 @@ const initialState = {
   error: null,
 };
 
-const getAllPosts = createAsyncThunk(
-  "users/getAllPosts",
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.get("/api/posts");
-
-      return data;
-    } catch (err) {
-      return rejectWithValue("Posts not found!");
-    }
-  }
-);
+const getAllPosts = createAsyncThunk("users/getAllPosts", async () => {
+  const { data } = await axios.get("/api/posts");
+  return data;
+});
 
 const createPost = createAsyncThunk(
   "user/createPost",

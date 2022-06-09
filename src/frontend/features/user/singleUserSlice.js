@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 const initialState = {
   user: null,
-  posts: null,
+  posts: [],
   isLoading: false,
   status: null,
   error: null,
@@ -24,6 +24,7 @@ const getSingleUser = createAsyncThunk(
 const getUserAllPosts = createAsyncThunk(
   "user/getUserAllPosts",
   async (username, { rejectWithValue }) => {
+    console.log(username);
     try {
       const { data } = await axios.get(`/api/posts/user/${username}`);
       return data;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import toast from "react-hot-toast";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
@@ -32,6 +33,7 @@ const Post = ({ post }) => {
 
   const deleteHandler = (id, token) => {
     dispatch(deletePost({ postId: id, token }));
+    toast.success("Post Deleted!");
   };
   const editPostHandler = (id, postData, token) => {
     dispatch(editPost({ postId: id, postData, token }));
@@ -44,6 +46,7 @@ const Post = ({ post }) => {
       content: "",
     });
     setModalOpen(false);
+    toast.success("Post Updated!");
   };
 
   const likeHandler = (id, token) => {
@@ -52,6 +55,8 @@ const Post = ({ post }) => {
   const dislikeHandler = (id, token) => {
     dispatch(dislikePost({ postId: id, token }));
   };
+  // console.log(likes);
+  // console.log(post);
   const fanBoys = likes.likedBy.map((fan) => fan.username);
   return (
     <div className="h-80 rounded-lg bg-gray-800 text-white relative">
@@ -134,7 +139,7 @@ const Post = ({ post }) => {
             <span className="material-icons-round text-green-400 mr-2">
               thumb_up
             </span>
-            Liked
+            Liked 4
           </button>
         ) : (
           <button
@@ -146,7 +151,7 @@ const Post = ({ post }) => {
             <span className="material-icons-outlined text-gray-400 mr-2">
               thumb_up
             </span>
-            Like
+            Like 3
           </button>
         )}
 

@@ -7,12 +7,14 @@ import { sortPosts, getUserFeed } from "../../utils";
 const Feed = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.allPosts);
+
   const {
     user: { following, username },
   } = useSelector((state) => state.auth);
+
   useEffect(() => {
     dispatch(getAllPosts());
-  }, [posts]);
+  }, []);
 
   const sortedPosts = getUserFeed(posts, following, username);
   const userFeed = sortPosts(sortedPosts);
