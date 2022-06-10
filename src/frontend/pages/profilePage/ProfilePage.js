@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getSingleUser, getUserAllPosts } from "../../features";
 import { Post } from "../../components";
+import { sortPosts } from "../../utils";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const { user, posts } = useSelector((state) => state.singleUser);
@@ -10,11 +11,10 @@ const ProfilePage = () => {
   const { username } = useParams();
   useEffect(() => {
     dispatch(getSingleUser(username));
-  }, []);
-  useEffect(() => {
-    console.log("useeffcts");
     dispatch(getUserAllPosts(username));
+    console.log("efffect");
   }, [allPosts]);
+  const userPosts = sortPosts(posts);
   return (
     <div>
       <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
@@ -81,7 +81,7 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        {posts?.map((post) => (
+        {userPosts?.map((post) => (
           <Post key={post._id} post={post} />
         ))}
       </div>
