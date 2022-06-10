@@ -15,7 +15,7 @@ const CreatePost = () => {
   });
   const dispatch = useDispatch();
   function postSubmitHandler(postData, authToken) {
-    if (postData.content !== "") {
+    if (postData.content !== "" && postData.content.replace(/\s/g, "")) {
       dispatch(createPost({ postData, authToken }));
       toast.success("Your status updated!");
     } else {
