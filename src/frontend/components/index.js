@@ -6,3 +6,4 @@ export { CreatePost } from "./createPost/CreatePost";
 export { Feed } from "./feed/Feed";
 export { Filter } from "./filter/Filter";
 export { Post } from "./post/Post";
+export { Modal } from "./modal/Modal";
