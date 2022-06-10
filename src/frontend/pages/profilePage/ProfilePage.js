@@ -12,7 +12,6 @@ const ProfilePage = () => {
   useEffect(() => {
     dispatch(getSingleUser(username));
     dispatch(getUserAllPosts(username));
-    console.log("efffect");
   }, [allPosts]);
   const userPosts = sortPosts(posts);
   return (
