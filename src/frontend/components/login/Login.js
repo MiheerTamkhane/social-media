@@ -62,12 +62,12 @@ const Login = () => {
         font-normal
         text-gray-700
         bg-white bg-clip-padding
-        border border-solid border-gray-300
+        border border-solid border-purple-300
         rounded
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
             id="username"
             aria-describedby="emailHelp"
             placeholder="Username"
@@ -100,7 +100,7 @@ const Login = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        focus:text-gray-700 focus:bg-white focus:border-purple-600 focus:outline-none"
             id="password"
             placeholder="Password"
           />
@@ -109,7 +109,7 @@ const Login = () => {
           <div className="form-group form-check">
             <input
               type="checkbox"
-              className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+              className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-purple-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
               id="checkbox"
             />
             <label

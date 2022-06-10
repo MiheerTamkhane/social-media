@@ -170,7 +170,7 @@ export const posts = [
         username: "miheer",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
-        text: "All those scenes were animated specifically for the movie. They weren't taken from another source.",
+        text: "Good Question.",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -277,7 +277,7 @@ export const posts = [
         _id: uuid(),
         firstName: "Miheer",
         lastName: "Tamkhane",
-        username: "miheertamkhane",
+        username: "miheer",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
         text: "Goku",
