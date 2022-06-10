@@ -24,7 +24,6 @@ const getSingleUser = createAsyncThunk(
 const getUserAllPosts = createAsyncThunk(
   "user/getUserAllPosts",
   async (username, { rejectWithValue }) => {
-    console.log(username);
     try {
       const { data } = await axios.get(`/api/posts/user/${username}`);
       return data;
