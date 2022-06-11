@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getSingleUser, getUserAllPosts } from "../../features";
-import { Post } from "../../components";
+import { Post, UpdateProfile } from "../../components";
 import { sortPosts } from "../../utils";
 const ProfilePage = () => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const { user, posts } = useSelector((state) => state.singleUser);
   const { posts: allPosts } = useSelector((state) => state.allPosts);
@@ -16,6 +17,7 @@ const ProfilePage = () => {
   const userPosts = sortPosts(posts);
   return (
     <div>
+      {showModal && <UpdateProfile setShowModal={setShowModal} />}
       <div className="min-h-96 h-fit mb-4 rounded-lg bg-gray-800 text-white">
         <div className="h-44">
           <img src="/assets/user-bg.jpeg" alt="user-bg" />
@@ -28,6 +30,7 @@ const ProfilePage = () => {
             className="rounded-full h-20 w-20 border-8 border-double border-gray-400 absolute -top-10"
           />
           <button
+            onClick={() => setShowModal(true)}
             type="button"
             className="mt-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-4 py-2 text-center absolute right-2 top-0 maxmidmd:text-xs"
           >

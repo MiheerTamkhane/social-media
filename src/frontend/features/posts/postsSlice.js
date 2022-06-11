@@ -184,7 +184,6 @@ const upvoteComment = createAsyncThunk(
       );
       return data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue("Can't upvote Comment!");
     }
   }
