@@ -44,6 +44,26 @@ const getUserAllPostsById = createAsyncThunk(
   }
 );
 
+const editUser = createAsyncThunk(
+  "user/edit",
+  async ({ userData, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        "/api/users/edit",
+        { userData },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't update user profile!");
+    }
+  }
+);
+
 const singleUserSlice = createSlice({
   name: "singleUser",
   initialState,
@@ -93,9 +113,22 @@ const singleUserSlice = createSlice({
       state.error = payload;
       state.status = "rejected";
     },
+    [editUser.pending]: (state) => {
+      state.status = "loading";
+    },
+    [editUser.fulfilled]: (state, { payload }) => {
+      state.status = "success";
+      state.user = payload.user;
+      state.authToken = payload.encodedToken;
+    },
+    [editUser.rejected]: (state, { payload }) => {
+      state.status = "rejected";
+      state.error = payload.error;
+      toast.error(state.error);
+    },
   },
 });
 
 export const singleUserReducer = singleUserSlice.reducer;
 export const { clearUser } = singleUserSlice.actions;
-export { getSingleUser, getUserAllPosts, getUserAllPostsById };
+export { getSingleUser, getUserAllPosts, getUserAllPostsById, editUser };

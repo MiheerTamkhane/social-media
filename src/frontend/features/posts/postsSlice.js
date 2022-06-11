@@ -108,6 +108,107 @@ const dislikePost = createAsyncThunk(
   }
 );
 
+const addComment = createAsyncThunk(
+  "post/addComment",
+  async ({ postId, commentData, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/add/${postId}`,
+        { commentData },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't add Comment!");
+    }
+  }
+);
+
+const deleteComment = createAsyncThunk(
+  "post/deleteComment",
+  async ({ postId, commentId, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/delete/${postId}/${commentId}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't delete Comment!");
+    }
+  }
+);
+
+const editComment = createAsyncThunk(
+  "post/editComment",
+  async ({ postId, commentId, commentData, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/edit/${postId}/${commentId}`,
+        { commentData },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't update Comment!");
+    }
+  }
+);
+
+const upvoteComment = createAsyncThunk(
+  "post/upvoteComment",
+  async ({ postId, commentId, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/upvote/${postId}/${commentId}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't upvote Comment!");
+    }
+  }
+);
+
+const downvoteComment = createAsyncThunk(
+  "post/downvoteComment",
+  async ({ postId, commentId, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/comments/downvote/${postId}/${commentId}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't upvote Comment!");
+    }
+  }
+);
+
 const postsSlice = createSlice({
   name: "posts",
   initialState,
@@ -179,8 +280,75 @@ const postsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
+    [addComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [addComment.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+    },
+    [addComment.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [deleteComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [deleteComment.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+    },
+    [deleteComment.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [editComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [editComment.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+    },
+    [editComment.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [upvoteComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [upvoteComment.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+    },
+    [upvoteComment.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    [downvoteComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [downvoteComment.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.posts = payload.posts;
+    },
+    [downvoteComment.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
   },
 });
 
 export const allPostsReducer = postsSlice.reducer;
-export { getAllPosts, createPost, deletePost, editPost, likePost, dislikePost };
+export {
+  getAllPosts,
+  createPost,
+  deletePost,
+  editPost,
+  likePost,
+  dislikePost,
+  addComment,
+  deleteComment,
+  editComment,
+  upvoteComment,
+  downvoteComment,
+};

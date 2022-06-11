@@ -64,7 +64,7 @@ const Signup = () => {
     font-normal
     text-gray-700
     bg-white bg-clip-padding
-    border border-solid border-gray-300
+    border border-solid border-purple-300
     rounded
     transition
     ease-in-out

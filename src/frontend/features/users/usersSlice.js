@@ -12,6 +12,26 @@ const getAllUsers = createAsyncThunk("user/getAllUsers", async () => {
   return data;
 });
 
+const followUser = createAsyncThunk(
+  "users/userFollowers",
+  async ({ followUserId, token }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/users/follow/${followUserId}`,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't follow user!");
+    }
+  }
+);
+
 const usersSliice = createSlice({
   name: "users",
   initialState,
@@ -25,8 +45,21 @@ const usersSliice = createSlice({
       state.error = error.message;
       state.status = "rejected";
     },
+    [followUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [followUser.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.users = payload.users;
+      state.status = "success";
+    },
+    [followUser.pending]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+      state.status = "rejected";
+    },
   },
 });
 
 export const usersReducer = usersSliice.reducer;
-export { getAllUsers };
+export { getAllUsers, followUser };

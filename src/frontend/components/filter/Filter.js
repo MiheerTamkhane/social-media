@@ -1,16 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllUsers } from "../../features";
+import { getAllUsers, followUser } from "../../features";
 const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const data = useSelector((state) => state.users);
-  const { user } = useSelector((state) => state.auth);
+  const { users } = useSelector((state) => state.users);
+  const { user, authToken } = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
-
+  const toFollow = users
+    .filter(
+      (man) => !man.followers.find((item) => item.username === user.username)
+    )
+    .filter((item) => item?.username !== user?.username);
   return (
     <aside className="w-72">
       <div className="overflow-y-auto p-4 text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
@@ -42,7 +46,7 @@ const Filter = () => {
           </select>
         </div>
         <div className="mt-6 flex flex-col gap-3">
-          {data?.users.map(({ _id, avatarURL, username }) => {
+          {toFollow.map(({ _id, avatarURL, username }) => {
             return (
               user?.username !== username && (
                 <div
@@ -61,9 +65,21 @@ const Filter = () => {
                     <span className="text-md tracking-wide font-['jost'] cursor-pointer">
                       {username}
                     </span>
-                    <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer">
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        dispatch(
+                          followUser({
+                            followUserId: _id,
+                            token: authToken,
+                          })
+                        );
+                      }}
+                      className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer"
+                    >
                       Follow
-                    </span>
+                    </button>
                   </div>
                 </div>
               )
