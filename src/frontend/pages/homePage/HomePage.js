@@ -11,7 +11,7 @@ export const HomePage = ({ page }) => {
         <div className="mx-6 h-screen w-1/2 overflow-scroll scrollbar-hide maxxlmd:w-full maxmd:mx-4 rounded-lg">
           {page}
         </div>
-        <div className="maxmidmd:hidden ">
+        <div className="maxmidmd:hidden">
           {page.type.name !== "ProfilePage" && <Filter />}
         </div>
       </div>

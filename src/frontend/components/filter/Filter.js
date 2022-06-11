@@ -56,7 +56,7 @@ const Filter = () => {
             </option>
           </select>
         </div>
-        <div className="mt-6 flex flex-col gap-3 maxxlmd:hidden">
+        <div className="mt-6 flex flex-col gap-3">
           {toFollow.map(({ _id, avatarURL, username }) => {
             return (
               user?.username !== username && (

@@ -14,7 +14,7 @@ const Feed = () => {
   const { sortByDate, sortByTrending } = useSelector(
     (state) => state.feedFilters
   );
-
+  console.log(posts);
   const {
     user: { following, username },
   } = useSelector((state) => state.auth);
@@ -24,15 +24,13 @@ const Feed = () => {
   }, []);
 
   const userFeed = getUserFeed(posts, following, username);
-
   const sortedBydate = filterPostsByDate(userFeed, sortByDate);
   const sortedByTrend = filterPostsByTrending(sortedBydate, sortByTrending);
-  const finalData = sortedByTrend;
   return (
     <div className="bg-gray-900">
       <CreatePost />
       <div className="mt-4 gap-4 flex flex-col">
-        {finalData?.map((post) => {
+        {sortedByTrend?.map((post) => {
           return <Post key={post._id} post={post} />;
         })}
       </div>
