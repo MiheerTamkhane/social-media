@@ -4,6 +4,7 @@ import {
   usersReducer,
   singleUserReducer,
   allPostsReducer,
+  bookmarkReducer,
 } from "./frontend/features";
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     users: usersReducer,
     singleUser: singleUserReducer,
     allPosts: allPostsReducer,
+    savedPosts: bookmarkReducer,
   },
 });
 

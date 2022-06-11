@@ -15,6 +15,8 @@ import {
   editComment,
   upvoteComment,
   downvoteComment,
+  bookmarkPost,
+  removeBookmarkPost,
 } from "../../features";
 import { Modal } from "../modal/Modal";
 import "./Post.css";
@@ -31,6 +33,7 @@ const Post = ({ post }) => {
     comments,
   } = post;
   const { authToken, user } = useSelector((state) => state.auth);
+  const { data: bookmarks } = useSelector((state) => state.savedPosts);
   const [modalOpen, setModalOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [updateCommentModal, setUpdateCommentModal] = useState({
@@ -222,13 +225,28 @@ const Post = ({ post }) => {
             comment
           </span>
         </button>
-        <button
-          className={`inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 focus:bg-gray-700`}
-        >
-          <span className="material-icons-round text-gray-400">
-            turned_in_not
-          </span>
-        </button>
+
+        {bookmarks.find((post) => post._id === _id) ? (
+          <button
+            onClick={() => {
+              dispatch(removeBookmarkPost({ postId: _id, token: authToken }));
+            }}
+            className={`inline-flex items-center px-4 py-2  hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 bg-gray-700`}
+          >
+            <span className="material-icons text-green-400">bookmark</span>
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              dispatch(bookmarkPost({ postId: _id, token: authToken }));
+            }}
+            className={`inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 `}
+          >
+            <span className="material-icons-round text-gray-400">
+              turned_in_not
+            </span>
+          </button>
+        )}
       </div>
 
       {showComments && (
