@@ -59,7 +59,6 @@ const editUser = createAsyncThunk(
       );
       return data;
     } catch (err) {
-      console.error(err);
       return rejectWithValue("Can't update user profile!");
     }
   }
