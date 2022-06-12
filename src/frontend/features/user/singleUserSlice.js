@@ -85,7 +85,6 @@ const singleUserSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
       state.status = "rejected";
-      toast.error(state.error);
     },
     [getUserAllPosts.pending]: (state) => {
       state.isLoading = true;
@@ -99,7 +98,6 @@ const singleUserSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
       state.status = "rejected";
-      toast.error(state.error);
     },
     [getUserAllPostsById.pending]: (state) => {
       state.isLoading = true;
@@ -113,7 +111,6 @@ const singleUserSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
       state.status = "rejected";
-      toast.error(state.error);
     },
     [editUser.pending]: (state) => {
       state.status = "loading";
