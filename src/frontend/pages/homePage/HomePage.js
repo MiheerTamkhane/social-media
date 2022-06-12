@@ -8,7 +8,7 @@ export const HomePage = ({ page }) => {
         <div className="maxxlmd:absolute maxxlmd:-left-full">
           <Sidebar />
         </div>
-        <div className="mx-6 h-screen w-1/2 overflow-scroll scrollbar-hide maxxlmd:w-full maxmd:mx-4 rounded-lg">
+        <div className="mx-6 h-full w-1/2 overflow-scroll scrollbar-hide maxxlmd:w-full maxmd:mx-4 rounded-lg">
           {page}
         </div>
         <div className="maxmidmd:hidden">

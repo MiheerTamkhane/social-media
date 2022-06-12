@@ -7,7 +7,6 @@ const UpdateProfile = ({ setShowModal }) => {
   const { authToken } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.singleUser);
   const { firstName, lastName, bio, username, website } = user;
-  console.log(user);
   const dispatch = useDispatch();
   const [updatedUser, setUpdatedUser] = useState({
     firstName,
