@@ -23,7 +23,7 @@ const Filter = () => {
     )
     .filter((item) => item?.username !== user?.username);
   return (
-    <aside className="w-72">
+    <aside className="w-72 maxmd:w-full">
       <div className="overflow-y-auto p-4 text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
         <h3>Sort By</h3>
         <div className="hich div">
@@ -56,7 +56,7 @@ const Filter = () => {
             </option>
           </select>
         </div>
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="mt-6 flex flex-col gap-3 maxmd:hidden">
           {toFollow.map(({ _id, avatarURL, username }) => {
             return (
               user?.username !== username && (
