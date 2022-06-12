@@ -8,8 +8,10 @@ export const HomePage = ({ page }) => {
         <div className="maxmidmd:hidden">
           <Sidebar />
         </div>
-        <div className="h-screen overflow-scroll scrollbar-hide maxxlmd:w-full maxmd:mx-6 rounded-lg flex justify-center maxmd:justify-end maxmd:flex-col-reverse">
-          <div className="mx-6 maxmd:mx-0">{page}</div>
+        <div className="h-screen  maxxlmd:w-full maxmd:mx-6 rounded-lg flex justify-center maxmd:justify-end maxmd:flex-col-reverse">
+          <div className="mx-6 maxmd:mx-0 overflow-scroll scrollbar-hide rounded-lg">
+            {page}
+          </div>
           <div className="maxmd:w-full maxmd:mb-4">
             {page.type.name !== "ProfilePage" && <Filter />}
           </div>
