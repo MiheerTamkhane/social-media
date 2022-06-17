@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const initialState = {
   posts: [],
@@ -224,6 +225,7 @@ const postsSlice = createSlice({
     [getAllPosts.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [createPost.pending]: (state) => {
       state.isLoading = true;
@@ -235,6 +237,7 @@ const postsSlice = createSlice({
     [createPost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [deletePost.pending]: (state) => {
       state.isLoading = true;
@@ -246,6 +249,7 @@ const postsSlice = createSlice({
     [deletePost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [editPost.pending]: (state) => {
       state.isLoading = true;
@@ -257,6 +261,7 @@ const postsSlice = createSlice({
     [editPost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [likePost.pending]: (state) => {
       state.isLoading = true;
@@ -268,6 +273,7 @@ const postsSlice = createSlice({
     [likePost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [dislikePost.pending]: (state) => {
       state.isLoading = true;
@@ -279,6 +285,7 @@ const postsSlice = createSlice({
     [dislikePost.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [addComment.pending]: (state) => {
       state.isLoading = true;
@@ -290,6 +297,7 @@ const postsSlice = createSlice({
     [addComment.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [deleteComment.pending]: (state) => {
       state.isLoading = true;
@@ -301,6 +309,7 @@ const postsSlice = createSlice({
     [deleteComment.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [editComment.pending]: (state) => {
       state.isLoading = true;
@@ -312,6 +321,7 @@ const postsSlice = createSlice({
     [editComment.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [upvoteComment.pending]: (state) => {
       state.isLoading = true;
@@ -323,6 +333,7 @@ const postsSlice = createSlice({
     [upvoteComment.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
     [downvoteComment.pending]: (state) => {
       state.isLoading = true;
@@ -334,6 +345,7 @@ const postsSlice = createSlice({
     [downvoteComment.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      toast.error(state.error);
     },
   },
 });

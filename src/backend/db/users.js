@@ -56,14 +56,6 @@ export const users = [
         avatarURL:
           "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
       },
-      {
-        _id: uuid(),
-        firstName: "Rushikesh",
-        lastName: "Tarapure",
-        username: "Neo_MonkStar",
-        avatarURL:
-          "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
-      },
     ],
     avatarURL:
       "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",

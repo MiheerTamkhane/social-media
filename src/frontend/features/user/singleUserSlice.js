@@ -85,7 +85,6 @@ const singleUserSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
       state.status = "rejected";
-      toast.error(state.error);
     },
     [getUserAllPosts.pending]: (state) => {
       state.isLoading = true;
