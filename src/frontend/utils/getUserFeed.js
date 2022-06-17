@@ -1,7 +1,9 @@
 export function getUserFeed(posts, following, currentUser) {
+  console.log("from getuser : ", posts, following, currentUser);
   const followingUsername = following?.map((user) => user.username);
   return posts?.filter(
     (post) =>
-      followingUsername.includes(post.username) || post.username === currentUser
+      followingUsername.includes(post?.username) ||
+      post?.username === currentUser
   );
 }

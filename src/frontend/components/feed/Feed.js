@@ -21,6 +21,7 @@ const Feed = () => {
   useEffect(() => {
     dispatch(getAllPosts());
   }, []);
+  console.log(posts);
   const userFeed = getUserFeed(posts, following, username);
   const sortedBydate = filterPostsByDate(userFeed, sortByDate);
   const sortedByTrend = filterPostsByTrending(sortedBydate, sortByTrending);
