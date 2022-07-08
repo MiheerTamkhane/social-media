@@ -7,7 +7,7 @@ export const Sidebar = () => {
   return (
     <aside className="w-72">
       <div className="overflow-y-auto p-4 bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
-        <div className="flex items-center pl-2.5 mb-5">
+        <div className="flex items-center pl-2.5 mb-5 ">
           <img
             src={user?.avatarURL || "/assets/male.jpg"}
             className="mr-2 rounded-full h-14 w-14"

@@ -10,3 +10,4 @@ export { Modal } from "./modal/Modal";
 export { UpdateProfile } from "./updateProfile/UpdateProfile";
 export { EditPost } from "./editPost/EditPost";
 export { PostComments } from "./postComments/PostComments";
+export { Loader } from "./loader/Loader";

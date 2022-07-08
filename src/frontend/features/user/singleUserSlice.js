@@ -113,16 +113,18 @@ const singleUserSlice = createSlice({
       state.status = "rejected";
     },
     [editUser.pending]: (state) => {
-      state.status = "loading";
+      state.isLoading = true;
     },
     [editUser.fulfilled]: (state, { payload }) => {
       state.status = "success";
       state.user = payload.user;
       state.authToken = payload.encodedToken;
+      state.isLoading = false;
     },
     [editUser.rejected]: (state, { payload }) => {
       state.status = "rejected";
       state.error = payload.error;
+      state.isLoading = false;
       toast.error(state.error);
     },
   },

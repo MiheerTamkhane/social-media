@@ -15,7 +15,7 @@ import {
 
 import { EditPost } from "../editPost/EditPost";
 import { PostComments } from "../postComments/PostComments";
-import "./Post.css";
+
 const Post = ({ post }) => {
   const { _id, username, content, avatarURL, createdAt, likes, comments } =
     post;

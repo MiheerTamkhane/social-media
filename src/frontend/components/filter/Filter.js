@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   getAllUsers,
   followUser,
@@ -13,7 +13,7 @@ const Filter = () => {
   const navigate = useNavigate();
   const { users } = useSelector((state) => state.users);
   const { user, authToken } = useSelector((state) => state.auth);
-
+  const location = useLocation();
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
@@ -25,37 +25,39 @@ const Filter = () => {
   return (
     <aside className="w-72 maxmd:w-full">
       <div className="overflow-y-auto p-4 text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
-        <h3>Sort By</h3>
-        <div className="hich div">
-          <button
-            onClick={() => dispatch(filterByTrending("TRENDING"))}
-            type="button"
-            className="mt-2 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-base px-5 py-2 text-center  w-full"
-          >
-            Trending
-          </button>
-          <label
-            htmlFor="sort-by"
-            className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-          >
-            Select an option
-          </label>
-          <select
-            onChange={(e) => dispatch(filterByDate(e.target.value))}
-            id="sort-by"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-base"
-          >
-            <option className="p-2 text-base" value={""}>
-              Sort by Date
-            </option>
-            <option value={"NEW_TO_OLD"} className="p-2 text-base">
-              Newest First
-            </option>
-            <option className="p-2 text-base" value={"OLD_TO_NEW"}>
-              Oldest First
-            </option>
-          </select>
-        </div>
+        {location.pathname.split("/")[1] !== "profile" && (
+          <div>
+            <h3>Sort By</h3>
+            <button
+              onClick={() => dispatch(filterByTrending("TRENDING"))}
+              type="button"
+              className="mt-2 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-base px-5 py-2 text-center  w-full"
+            >
+              Trending
+            </button>
+            <label
+              htmlFor="sort-by"
+              className="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+            >
+              Select an option
+            </label>
+            <select
+              onChange={(e) => dispatch(filterByDate(e.target.value))}
+              id="sort-by"
+              className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-base"
+            >
+              <option className="p-2 text-base" value={""}>
+                Sort by Date
+              </option>
+              <option value={"NEW_TO_OLD"} className="p-2 text-base">
+                Newest First
+              </option>
+              <option className="p-2 text-base" value={"OLD_TO_NEW"}>
+                Oldest First
+              </option>
+            </select>
+          </div>
+        )}
         <div className="mt-6 flex flex-col gap-3 maxmd:hidden">
           {toFollow.map(({ _id, avatarURL, username }) => {
             return (
