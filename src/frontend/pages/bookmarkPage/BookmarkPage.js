@@ -1,14 +1,15 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Post, Loader } from "../../components";
+
 const BookmarkPage = () => {
-  const { data, isLoading } = useSelector((state) => state.savedPosts);
+  const { data, isLoading } = useSelector((state) => state?.savedPosts);
+
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full">
+        <div className="w-full flex flex-col gap-4">
           {data.length > 0 ? (
             data.map((post) => {
               return <Post key={post._id} post={post} />;

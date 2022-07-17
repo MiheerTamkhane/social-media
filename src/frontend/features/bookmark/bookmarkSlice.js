@@ -4,19 +4,25 @@ import toast from "react-hot-toast";
 
 const initialState = {
   data: [],
-  loading: false,
+  isLoading: false,
   error: "",
 };
 
 const getBookmarkPosts = createAsyncThunk(
   "posts/bookmarked",
-  async ({ token }, { rejectWithValue }) => {
+  async (token, { rejectWithValue }) => {
+    console.log(token);
     try {
-      const { data } = await axios.get("/api/users/bookmark", {
-        headers: {
-          authorization: token,
-        },
-      });
+      const { data } = await axios.get(
+        "/api/users/bookmark/",
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log(data);
       return data;
     } catch (err) {
       return rejectWithValue("Can't get bookmarked posts!");
@@ -73,7 +79,7 @@ const boomarkSlice = createSlice({
     },
     [getBookmarkPosts.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.data;
+      state.data = payload;
     },
     [getBookmarkPosts.rejected]: (state, { payload }) => {
       state.isLoading = false;

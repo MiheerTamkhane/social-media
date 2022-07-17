@@ -121,18 +121,20 @@ const Post = ({ post }) => {
           <span
             className={
               showComments
-                ? "material-icons text-green-400"
-                : "material-icons-outlined text-gray-400"
+                ? "material-icons text-green-400 mr-2"
+                : "material-icons-outlined text-gray-400 mr-2"
             }
           >
             comment
           </span>
+          {comments.length}
         </button>
 
-        {bookmarks.find((post) => post._id === _id) ? (
+        {bookmarks?.find((post) => post._id === _id) ? (
           <button
             onClick={() => {
               dispatch(removeBookmarkPost({ postId: _id, token: authToken }));
+              toast.success("Removed from bookmarks!");
             }}
             className={`inline-flex items-center px-4 py-2  hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 bg-gray-700`}
           >
@@ -142,6 +144,7 @@ const Post = ({ post }) => {
           <button
             onClick={() => {
               dispatch(bookmarkPost({ postId: _id, token: authToken }));
+              toast.success("Post saved!");
             }}
             className={`inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 `}
           >

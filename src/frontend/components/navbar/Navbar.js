@@ -17,27 +17,7 @@ export const Navbar = () => {
           </span>
         </NavLink>
 
-        <div className="flex md:order-2 gap-1">
-          <button
-            type="button"
-            onClick={() => setExpanded((ex) => !ex)}
-            data-collapse-toggle="mobile-menu-3"
-            aria-controls="mobile-menu-3"
-            className="md:hidden dark:text-white hover:bg-white dark:hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-500 rounded-lg text-sm p-2.5 mr-1"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+        <div className="flex md:order-2 gap-1 md:hidden">
           <button
             data-collapse-toggle="mobile-menu-3"
             type="button"
@@ -77,28 +57,6 @@ export const Navbar = () => {
           } justify-between items-center w-full md:flex md:w-auto md:order-1`}
           id="mobile-menu-3"
         >
-          <div className="relative mt-3 md:hidden">
-            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-              <svg
-                className="w-5 h-5 text-purple-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </div>
-            <input
-              type="text"
-              id="search-navbar"
-              className="block p-2 pl-10 w-full text-purple-500 bg-gray-50 rounded-lg border-purple-500 sm:text-sm focus:ring-purple-500 focus:border-purple-500 dark:bg-purple-900 dark:border-purple-600 dark:placeholder-purple-500 dark:text-white outline-none"
-              placeholder="Search here for people or groups"
-            />
-          </div>
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
               <NavLink
@@ -170,28 +128,6 @@ export const Navbar = () => {
               Register
             </button>
           )}
-        </div>
-        <div className="hidden relative md:block w-2/5">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-purple-500"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </div>
-          <input
-            type="text"
-            id="search-navbar"
-            className="block p-2 pl-10 w-full text-purple-500 bg-gray-50 rounded-lg border-purple-500 sm:text-sm focus:ring-purple-500 focus:border-purple-500 dark:bg-purple-900 dark:border-purple-600 dark:placeholder-purple-500 dark:text-white outline-none"
-            placeholder="Search here for people or groups"
-          />
         </div>
       </div>
     </nav>
