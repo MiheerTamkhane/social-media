@@ -10,19 +10,20 @@ const ProfilePage = () => {
   const { user, posts, isLoading } = useSelector((state) => state.singleUser);
   const { posts: allPosts } = useSelector((state) => state.allPosts);
   const { username } = useParams();
-  useEffect(() => {
-    dispatch(getSingleUser(username));
-    dispatch(getUserAllPosts(username));
-  }, [allPosts, username]);
 
   useEffect(() => {
     return () => dispatch(clearUser());
   }, [dispatch, username]);
 
+  useEffect(() => {
+    dispatch(getSingleUser(username));
+    dispatch(getUserAllPosts(username));
+  }, [allPosts, username, dispatch]);
+
   const userPosts = sortPosts(posts);
 
   return (
-    <>
+    <div className="bg-gray-900 flex items-center">
       {isLoading ? (
         <Loader />
       ) : (
@@ -99,7 +100,7 @@ const ProfilePage = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

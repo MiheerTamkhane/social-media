@@ -6,6 +6,7 @@ import {
   followUser,
   filterByDate,
   filterByTrending,
+  getBookmarkPosts,
 } from "../../features";
 
 const Filter = () => {
@@ -14,9 +15,15 @@ const Filter = () => {
   const { users } = useSelector((state) => state.users);
   const { user, authToken } = useSelector((state) => state.auth);
   const location = useLocation();
+
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
+
+  useEffect(() => {
+    dispatch(getBookmarkPosts(authToken));
+  }, [dispatch, authToken]);
+
   const toFollow = users
     .filter(
       (man) => !man.followers.find((item) => item.username === user.username)

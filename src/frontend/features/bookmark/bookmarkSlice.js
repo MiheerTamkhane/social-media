@@ -3,7 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const initialState = {
-  data: [],
+  bookmarkedPosts: [],
   isLoading: false,
   error: "",
 };
@@ -11,18 +11,12 @@ const initialState = {
 const getBookmarkPosts = createAsyncThunk(
   "posts/bookmarked",
   async (token, { rejectWithValue }) => {
-    console.log(token);
     try {
-      const { data } = await axios.get(
-        "/api/users/bookmark/",
-        {},
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
-      console.log(data);
+      const { data } = await axios.get("/api/users/bookmark", {
+        headers: {
+          authorization: token,
+        },
+      });
       return data;
     } catch (err) {
       return rejectWithValue("Can't get bookmarked posts!");
@@ -79,7 +73,7 @@ const boomarkSlice = createSlice({
     },
     [getBookmarkPosts.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [getBookmarkPosts.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -91,7 +85,7 @@ const boomarkSlice = createSlice({
     },
     [bookmarkPost.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.bookmarks;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [bookmarkPost.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -103,7 +97,7 @@ const boomarkSlice = createSlice({
     },
     [removeBookmarkPost.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.bookmarks;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [removeBookmarkPost.rejected]: (state, { payload }) => {
       state.isLoading = false;

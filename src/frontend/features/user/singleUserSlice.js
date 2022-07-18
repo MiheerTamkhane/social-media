@@ -69,7 +69,11 @@ const singleUserSlice = createSlice({
   initialState,
   reducers: {
     clearUser: (state) => {
-      state = initialState;
+      state.user = null;
+      state.posts = [];
+      state.isLoading = false;
+      state.status = null;
+      state.error = null;
     },
   },
   extraReducers: {

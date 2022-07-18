@@ -8,12 +8,12 @@ const override = {
 
 const Loader = () => {
   return (
-    <div className="w-100">
+    <div className="w-full h-fit mx-44 maxmd:mx-36">
       <PuffLoader
         color={"rgb(124 58 237)"}
         loading={true}
         cssOverride={override}
-        size={200}
+        size={245}
       />
     </div>
   );

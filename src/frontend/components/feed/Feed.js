@@ -28,11 +28,11 @@ const Feed = () => {
   const sortedByTrend = filterPostsByTrending(sortedBydate, sortByTrending);
 
   return (
-    <>
+    <div className="bg-gray-900 flex items-center">
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="bg-gray-900">
+        <div>
           <CreatePost />
           <div className="mt-4 gap-4 flex flex-col">
             {sortedByTrend?.map((post) => {
@@ -41,7 +41,7 @@ const Feed = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
