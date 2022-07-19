@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import moment from "moment";
 import toast from "react-hot-toast";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
@@ -15,16 +16,18 @@ import {
 
 import { EditPost } from "../editPost/EditPost";
 import { PostComments } from "../postComments/PostComments";
-import "./Post.css";
+
 const Post = ({ post }) => {
   const { _id, username, content, avatarURL, createdAt, likes, comments } =
     post;
   const { authToken, user } = useSelector((state) => state.auth);
-  const { data: bookmarks } = useSelector((state) => state.savedPosts);
+  const { bookmarkedPosts: bookmarks } = useSelector(
+    (state) => state.savedPosts
+  );
   const [modalOpen, setModalOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
-
+  const location = useLocation();
   const deleteHandler = (id, token) => {
     dispatch(deletePost({ postId: id, token }));
     toast.success("Post Deleted!");
@@ -38,7 +41,7 @@ const Post = ({ post }) => {
     dispatch(dislikePost({ postId: id, token }));
   };
 
-  const fanBoys = likes.likedBy.map((fan) => fan.username);
+  const likedByPeoples = likes.likedBy.map((fan) => fan.username);
   return (
     <div className="h-fit rounded-lg bg-gray-800 text-white relative">
       {modalOpen && (
@@ -64,29 +67,31 @@ const Post = ({ post }) => {
             </span>
           </div>
         </div>
-        <div className="p-2 mr-2 flex items-center ">
-          <Menu
-            menuButton={
-              <MenuButton>
-                <span className="material-icons-outlined mr-6 text-4xl text-gray-400 ">
-                  more_horiz
-                </span>
-              </MenuButton>
-            }
-            transition
-          >
-            <MenuItem onClick={() => setModalOpen(true)}>Edit</MenuItem>
-            <MenuItem onClick={() => deleteHandler(_id, authToken)}>
-              Delete
-            </MenuItem>
-          </Menu>
-        </div>
+        {location.pathname !== "/bookmarks" && (
+          <div className="p-2 mr-2 flex items-center ">
+            <Menu
+              menuButton={
+                <MenuButton>
+                  <span className="material-icons-outlined mr-6 text-4xl text-gray-400 ">
+                    more_horiz
+                  </span>
+                </MenuButton>
+              }
+              transition
+            >
+              <MenuItem onClick={() => setModalOpen(true)}>Edit</MenuItem>
+              <MenuItem onClick={() => deleteHandler(_id, authToken)}>
+                Delete
+              </MenuItem>
+            </Menu>
+          </div>
+        )}
       </div>
       <div className=" h-48 border-b border-t border-gray-500 text-left text-md font-['rajdhani'] leading-6 flex flex-col  overflow-scroll scrollbar-hide">
         <p className="px-6 py-2">{content}</p>
       </div>
       <div className="p-1 max-w-full flex justify-around">
-        {fanBoys.includes(user.username) ? (
+        {likedByPeoples.includes(user.username) ? (
           <button
             onClick={() => dislikeHandler(_id, authToken)}
             className="inline-flex items-center px-4 py-2 text-white text-md font-medium rounded-lg
@@ -121,18 +126,20 @@ const Post = ({ post }) => {
           <span
             className={
               showComments
-                ? "material-icons text-green-400"
-                : "material-icons-outlined text-gray-400"
+                ? "material-icons text-green-400 mr-2"
+                : "material-icons-outlined text-gray-400 mr-2"
             }
           >
             comment
           </span>
+          {comments.length}
         </button>
 
-        {bookmarks.find((post) => post._id === _id) ? (
+        {bookmarks?.find((post) => post._id === _id) ? (
           <button
             onClick={() => {
               dispatch(removeBookmarkPost({ postId: _id, token: authToken }));
+              toast.success("Removed from bookmarks!");
             }}
             className={`inline-flex items-center px-4 py-2  hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 bg-gray-700`}
           >
@@ -142,6 +149,7 @@ const Post = ({ post }) => {
           <button
             onClick={() => {
               dispatch(bookmarkPost({ postId: _id, token: authToken }));
+              toast.success("Post saved!");
             }}
             className={`inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-md font-medium rounded-lg btn-hover transition-all duration-300 `}
           >

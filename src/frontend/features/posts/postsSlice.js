@@ -227,123 +227,73 @@ const postsSlice = createSlice({
       state.error = payload;
       toast.error(state.error);
     },
-    [createPost.pending]: (state) => {
-      state.isLoading = true;
-    },
     [createPost.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [createPost.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [deletePost.pending]: (state) => {
-      state.isLoading = true;
-    },
     [deletePost.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [deletePost.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [editPost.pending]: (state) => {
-      state.isLoading = true;
-    },
     [editPost.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [editPost.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [likePost.pending]: (state) => {
-      state.isLoading = true;
-    },
     [likePost.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [likePost.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [dislikePost.pending]: (state) => {
-      state.isLoading = true;
-    },
     [dislikePost.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [dislikePost.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [addComment.pending]: (state) => {
-      state.isLoading = true;
-    },
     [addComment.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [addComment.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [deleteComment.pending]: (state) => {
-      state.isLoading = true;
-    },
     [deleteComment.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [deleteComment.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [editComment.pending]: (state) => {
-      state.isLoading = true;
-    },
     [editComment.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [editComment.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [upvoteComment.pending]: (state) => {
-      state.isLoading = true;
-    },
     [upvoteComment.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [upvoteComment.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },
-    [downvoteComment.pending]: (state) => {
-      state.isLoading = true;
-    },
     [downvoteComment.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
       state.posts = payload.posts;
     },
     [downvoteComment.rejected]: (state, { payload }) => {
-      state.isLoading = false;
       state.error = payload;
       toast.error(state.error);
     },

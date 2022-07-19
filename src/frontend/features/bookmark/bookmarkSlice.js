@@ -3,14 +3,14 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const initialState = {
-  data: [],
-  loading: false,
+  bookmarkedPosts: [],
+  isLoading: false,
   error: "",
 };
 
 const getBookmarkPosts = createAsyncThunk(
   "posts/bookmarked",
-  async ({ token }, { rejectWithValue }) => {
+  async (token, { rejectWithValue }) => {
     try {
       const { data } = await axios.get("/api/users/bookmark", {
         headers: {
@@ -73,7 +73,7 @@ const boomarkSlice = createSlice({
     },
     [getBookmarkPosts.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.data;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [getBookmarkPosts.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -85,7 +85,7 @@ const boomarkSlice = createSlice({
     },
     [bookmarkPost.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.bookmarks;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [bookmarkPost.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -97,7 +97,7 @@ const boomarkSlice = createSlice({
     },
     [removeBookmarkPost.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.data = payload.bookmarks;
+      state.bookmarkedPosts = payload.bookmarks;
     },
     [removeBookmarkPost.rejected]: (state, { payload }) => {
       state.isLoading = false;

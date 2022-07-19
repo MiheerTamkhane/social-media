@@ -22,10 +22,6 @@ export const MyRoutes = () => {
           element={<HomePage page={<ProfilePage />} />}
         />
         <Route
-          path="/profile/:username"
-          element={<HomePage page={<ProfilePage />} />}
-        />
-        <Route
           path="/bookmarks"
           element={<HomePage page={<BookmarkPage />} />}
         />
