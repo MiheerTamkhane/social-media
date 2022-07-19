@@ -72,7 +72,6 @@ const ProfilePage = () => {
                 </div>
                 <div className="flex flex-col items-center w-20 cursor-pointer">
                   <span className="text-lg font-semibold font-['rajdhani']">
-                    {" "}
                     {user?.following?.length || "0"}
                   </span>
                   <span className="text-xs text-gray-400">Following</span>

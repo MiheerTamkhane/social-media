@@ -29,11 +29,12 @@ const Filter = () => {
       (man) => !man.followers.find((item) => item.username === user.username)
     )
     .filter((item) => item?.username !== user?.username);
+  console.log(toFollow);
   return (
     <aside className="w-72 maxmd:w-full">
-      <div className="overflow-y-auto p-4 text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
+      <div className="overflow-y-auto  text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
         {location.pathname.split("/")[1] !== "profile" && (
-          <div>
+          <div className="mb-6 m-4">
             <h3>Sort By</h3>
             <button
               onClick={() => dispatch(filterByTrending("TRENDING"))}
@@ -65,47 +66,53 @@ const Filter = () => {
             </select>
           </div>
         )}
-        <div className="mt-6 flex flex-col gap-3 maxmd:hidden">
-          {toFollow.map(({ _id, avatarURL, username }) => {
-            return (
-              user?.username !== username && (
-                <div
-                  key={_id}
-                  className="p-2 flex w-full items-center relative border rounded border-gray-500"
-                >
+        {toFollow.length > 0 ? (
+          <div className="flex m-4 flex-col gap-3 maxmd:hidden">
+            {toFollow.map(({ _id, avatarURL, username }) => {
+              return (
+                user?.username !== username && (
                   <div
-                    className="flex items-center"
-                    onClick={() => navigate(`/profile/${username}`)}
+                    key={_id}
+                    className="p-2 flex w-full items-center relative border rounded border-gray-500"
                   >
-                    <img
-                      src={avatarURL ? avatarURL : "/assets/male.jpg"}
-                      className="mr-2 rounded-full h-10 w-10"
-                      alt={`${username}-avatar`}
-                    />
-                    <span className="text-md tracking-wide font-['jost'] cursor-pointer">
-                      {username}
-                    </span>
-
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        dispatch(
-                          followUser({
-                            followUserId: _id,
-                            token: authToken,
-                          })
-                        );
-                      }}
-                      className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer"
+                    <div
+                      className="flex items-center"
+                      onClick={() => navigate(`/profile/${username}`)}
                     >
-                      Follow
-                    </button>
+                      <img
+                        src={avatarURL ? avatarURL : "/assets/male.jpg"}
+                        className="mr-2 rounded-full h-10 w-10"
+                        alt={`${username}-avatar`}
+                      />
+                      <span className="text-md tracking-wide font-['jost'] cursor-pointer">
+                        {username}
+                      </span>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          dispatch(
+                            followUser({
+                              followUserId: _id,
+                              token: authToken,
+                            })
+                          );
+                        }}
+                        className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer"
+                      >
+                        Follow
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )
-            );
-          })}
-        </div>
+                )
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex m-4 flex-col gap-3 maxmd:hidden">
+            No more suggestion
+          </div>
+        )}
       </div>
     </aside>
   );
