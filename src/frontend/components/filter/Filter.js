@@ -29,7 +29,6 @@ const Filter = () => {
       (man) => !man.followers.find((item) => item.username === user.username)
     )
     .filter((item) => item?.username !== user?.username);
-  console.log(toFollow);
   return (
     <aside className="w-72 maxmd:w-full">
       <div className="overflow-y-auto  text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">

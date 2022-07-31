@@ -1,9 +1,11 @@
 import { MyRoutes } from "./frontend/routes/MyRoutes";
+import { Navbar } from "./frontend/components";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="app bg-gray-900 h-max">
+      <Navbar />
       <MyRoutes />
       <Toaster
         position="bottom-right"

@@ -7,7 +7,7 @@ import { sortPosts } from "../../utils";
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-  const { user, posts, isLoading } = useSelector((state) => state.singleUser);
+  const { user, posts } = useSelector((state) => state.singleUser);
   const { posts: allPosts } = useSelector((state) => state.allPosts);
   const { username } = useParams();
 
@@ -24,7 +24,7 @@ const ProfilePage = () => {
 
   return (
     <div className="bg-gray-900 flex items-center">
-      {isLoading ? (
+      {posts.length === 0 ? (
         <Loader />
       ) : (
         <div className="min-h-screen mb-4 rounded-lg bg-gray-900 text-white flex flex-col gap-4">
