@@ -80,7 +80,7 @@ const Signup = () => {
             htmlFor="lastname"
             className="form-label inline-block mb-2 text-gray-300"
           >
-            Your Name
+            Last Name
           </label>
           <input
             value={userDetails.lastName}
