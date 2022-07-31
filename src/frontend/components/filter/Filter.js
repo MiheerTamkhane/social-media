@@ -7,15 +7,16 @@ import {
   filterByDate,
   filterByTrending,
   getBookmarkPosts,
+  getSingleUser,
 } from "../../features";
 
 const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { users } = useSelector((state) => state.users);
+
   const { user, authToken } = useSelector((state) => state.auth);
   const location = useLocation();
-
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
@@ -96,6 +97,7 @@ const Filter = () => {
                               token: authToken,
                             })
                           );
+                          dispatch(getSingleUser(user.username));
                         }}
                         className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer"
                       >
