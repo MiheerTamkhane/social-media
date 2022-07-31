@@ -24,7 +24,7 @@ const ProfilePage = () => {
 
   return (
     <div className="bg-gray-900 flex items-center">
-      {posts.length === 0 ? (
+      {user === null ? (
         <Loader />
       ) : (
         <div className="min-h-screen mb-4 rounded-lg bg-gray-900 text-white flex flex-col gap-4">
