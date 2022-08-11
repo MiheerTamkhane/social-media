@@ -12,17 +12,17 @@ const BookmarkPage = () => {
     dispatch(getBookmarkPosts(token));
   }, [dispatch, token]);
   return (
-    <div className="bg-gray-900 flex items-center">
+    <div className="flex items-center">
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {bookmarkedPosts.length > 0 ? (
             bookmarkedPosts.map((post) => {
               return <Post key={post._id} post={post} />;
             })
           ) : (
-            <div className="w-full mx-44 flex flex-row md:m-16 maxmidmd:m-2">
+            <div className="w-full flex flex-row">
               <h1 className="p-4 text-4xl text-center text-white font-['jost']">
                 No saved posts!
               </h1>

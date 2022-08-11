@@ -18,9 +18,18 @@ import { EditPost } from "../editPost/EditPost";
 import { PostComments } from "../postComments/PostComments";
 
 const Post = ({ post }) => {
-  const { _id, username, content, avatarURL, createdAt, likes, comments } =
-    post;
+  const {
+    _id,
+    username,
+    content,
+    avatarURL,
+    fallbackAvatar,
+    createdAt,
+    likes,
+    comments,
+  } = post;
   const { authToken, user } = useSelector((state) => state.auth);
+  console.log(post);
   const { bookmarkedPosts: bookmarks } = useSelector(
     (state) => state.savedPosts
   );
@@ -54,7 +63,7 @@ const Post = ({ post }) => {
       <div className="flex justify-between relative">
         <div className="p-2 ml-4 flex w-full items-center">
           <img
-            src={avatarURL}
+            src={avatarURL || fallbackAvatar}
             className="mr-1 rounded-full h-10 w-10"
             alt={username + "Avtar"}
           />
@@ -67,7 +76,8 @@ const Post = ({ post }) => {
             </span>
           </div>
         </div>
-        {location.pathname !== "/bookmarks" && (
+        {/* asdflkjasdflkajsdflkajsd;fjd */}
+        {location.pathname !== "/bookmarks" && post.username === user.username && (
           <div className="p-2 mr-2 flex items-center ">
             <Menu
               menuButton={

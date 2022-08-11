@@ -65,7 +65,7 @@ const PostComments = ({ post, setShowComments }) => {
                   <div className="flex items-center min-w-fit maxmidmd:text-sm">
                     <img
                       className="mr-1 rounded-full h-10 w-10"
-                      src={comment.avatarURL || "/assets/male.jpg"}
+                      src={comment.avatarURL || comment.fallbackAvatar}
                       alt={comment.username + "avatar"}
                     />
                     <div className="flex flex-col">
@@ -156,7 +156,7 @@ const PostComments = ({ post, setShowComments }) => {
                 <div className="flex mb-2 px-2 pt-2">
                   <img
                     className="mr-1 rounded-full h-10 w-10"
-                    src={user.avatarURL || "/assets/male.jpg"}
+                    src={user.avatarURL || user.fallbackAvatar}
                     alt={user.username + "avatar"}
                   />
                   <input
@@ -216,7 +216,7 @@ focus:bg-gray-700 focus:border-purple-600 focus:outline-none"
         <div className="flex mb-2 px-2 pt-2">
           <img
             className="mr-1 rounded-full h-10 w-10"
-            src={user.avatarURL || "/assets/male.jpg"}
+            src={user.avatarURL || user.fallbackAvatar}
             alt={user.username + "avatar"}
           />
           <input

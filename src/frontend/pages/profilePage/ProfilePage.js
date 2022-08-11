@@ -27,16 +27,20 @@ const ProfilePage = () => {
       {user === null ? (
         <Loader />
       ) : (
-        <div className="min-h-screen mb-4 rounded-lg bg-gray-900 text-white flex flex-col gap-4">
+        <div className="min-h-screen rounded-lg bg-gray-900 text-white flex flex-col gap-4">
           {showModal && <UpdateProfile setShowModal={setShowModal} />}
           <div className="min-h-fit mb-4 rounded-lg bg-gray-800 text-white">
-            <div className="object-fill w-full">
-              <img src="/assets/user-bg.jpeg" alt="user-bg" />
+            <div className="object-fill w-mdTwo h-52">
+              <img
+                className="rounded-lg"
+                src={user?.avatarURL || user?.fallbackAvatar}
+                alt="user-bg"
+              />
             </div>
 
             <div className="flex justify-center relative">
               <img
-                src={user?.avatarURL || "/assets/male.jpg"}
+                src={user?.avatarURL || user?.fallbackAvatar}
                 alt="user-profile-img"
                 className="rounded-full h-20 w-20 border-8 border-double border-gray-400 absolute -top-10"
               />
@@ -92,6 +96,7 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
+
           <div className="flex flex-col gap-4">
             {userPosts?.map((post) => (
               <Post key={post._id} post={post} />

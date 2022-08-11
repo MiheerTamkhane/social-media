@@ -35,7 +35,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
       ],
       dislikedBy: [],
@@ -60,7 +60,7 @@ export const posts = [
         lastName: "Ghodekar",
         username: "horsemaker",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         text: "That gohan is amazing looking",
         votes: {
           upvotedBy: [],
@@ -90,7 +90,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
         {
           _id: uuid(),
@@ -159,7 +159,7 @@ export const posts = [
     lastName: "Ghodekar",
     username: "horsemaker",
     avatarURL:
-      "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+      "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
     createdAt: "06/03/2022".toString(),
     updatedAt: formatDate(),
     comments: [
@@ -201,7 +201,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
         {
           _id: uuid(),

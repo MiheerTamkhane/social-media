@@ -9,7 +9,7 @@ export const Sidebar = () => {
       <div className="overflow-y-auto p-4 bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
         <div className="flex items-center pl-2.5 mb-5 ">
           <img
-            src={user?.avatarURL || "/assets/male.jpg"}
+            src={user?.avatarURL || user?.fallbackAvatar}
             className="mr-2 rounded-full h-14 w-14"
             alt={`${user?.username}-avatar`}
           />

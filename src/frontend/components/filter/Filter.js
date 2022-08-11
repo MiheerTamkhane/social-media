@@ -13,6 +13,7 @@ import {
 const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { users } = useSelector((state) => state.users);
 
   const { user, authToken } = useSelector((state) => state.auth);
@@ -68,7 +69,7 @@ const Filter = () => {
         )}
         {toFollow.length > 0 ? (
           <div className="flex m-4 flex-col gap-3 maxmd:hidden">
-            {toFollow.map(({ _id, avatarURL, username }) => {
+            {toFollow.map(({ _id, avatarURL, username, fallbackAvatar }) => {
               return (
                 user?.username !== username && (
                   <div
@@ -80,9 +81,9 @@ const Filter = () => {
                       onClick={() => navigate(`/profile/${username}`)}
                     >
                       <img
-                        src={avatarURL ? avatarURL : "/assets/male.jpg"}
+                        src={avatarURL || fallbackAvatar}
                         className="mr-2 rounded-full h-10 w-10"
-                        alt={`${username}-avatar`}
+                        alt={username + "Avtar"}
                       />
                       <span className="text-md tracking-wide font-['jost'] cursor-pointer">
                         {username}

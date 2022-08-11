@@ -34,7 +34,7 @@ const Feed = () => {
       ) : (
         <div>
           <CreatePost />
-          <div className="mt-4 gap-4 flex flex-col w-full">
+          <div className="mt-4 gap-4 flex flex-col">
             {sortedByTrend?.map((post) => {
               return <Post key={post._id} post={post} />;
             })}

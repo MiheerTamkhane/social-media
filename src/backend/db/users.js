@@ -21,20 +21,23 @@ export const users = [
         username: "Neo_MonkStar",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
+        fallbackAvatar: "/assets/male.jpg",
       },
       {
         _id: uuid(),
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
         firstName: "Vijay",
         lastName: "Tembugade",
         username: "vijaytembugade",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
       },
@@ -45,18 +48,21 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
         firstName: "Prathmesh",
         lastName: "Jagtap",
         username: "prathmesh_20",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
       },
     ],
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
       "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
     bio: "The Kamehameha (かめはめ波は Kamehameha)",
@@ -71,8 +77,10 @@ export const users = [
     firstName: "Yash",
     lastName: "Ghodekar",
     username: "horsemaker",
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
-      "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+      "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+    fallbackAvatar: "/assets/male.jpg",
     bio: "5th project, project nahi mpsc ka exam ho gaya hai khatam hi nahi ho raha -Yash.",
     website: "https://peerlist.io/horsemaker",
     password: "horsemaker123",
@@ -82,6 +90,7 @@ export const users = [
         firstName: "Rushikesh",
         lastName: "Tarapure",
         username: "Neo_MonkStar",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
       },
@@ -92,6 +101,7 @@ export const users = [
         firstName: "Narhari",
         lastName: "Kale",
         username: "NarhariKale4",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1413557784746991621/QA9i13a3_400x400.jpg",
       },
@@ -100,6 +110,7 @@ export const users = [
         firstName: "Vijay",
         lastName: "Tembugade",
         username: "vijaytembugade",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
       },
@@ -108,6 +119,7 @@ export const users = [
         firstName: "Rushikesh",
         lastName: "Tarapure",
         username: "Neo_MonkStar",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
       },
@@ -123,6 +135,7 @@ export const users = [
     firstName: "Narhari",
     lastName: "Kale",
     username: "NarhariKale4",
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1413557784746991621/QA9i13a3_400x400.jpg",
     bio: "Laka zala ka project - Narhari.",
@@ -133,6 +146,7 @@ export const users = [
         firstName: "Rushikesh",
         lastName: "Tarapure",
         username: "Neo_MonkStar",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
       },
@@ -141,6 +155,7 @@ export const users = [
         firstName: "Vijay",
         lastName: "Tembugade",
         username: "vijaytembugade",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
       },
@@ -151,6 +166,7 @@ export const users = [
         firstName: "Miheer",
         lastName: "Tamkhane",
         username: "miheertamkhane",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
@@ -159,6 +175,7 @@ export const users = [
         firstName: "Vijay",
         lastName: "Tembugade",
         username: "vijaytembugade",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
       },
@@ -175,6 +192,7 @@ export const users = [
     firstName: "Vijay",
     lastName: "Tembugade",
     username: "vijaytembugade",
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
     bio: "Avghad kay nast be. -Vijay",
@@ -185,6 +203,7 @@ export const users = [
         firstName: "Miheer",
         lastName: "Tamkhane",
         username: "miheertamkhane",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
@@ -193,6 +212,7 @@ export const users = [
         firstName: "Prathmesh",
         lastName: "Jagtap",
         username: "prathmesh_20",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
       },
@@ -203,6 +223,7 @@ export const users = [
         firstName: "Miheer",
         lastName: "Tamkhane",
         username: "miheertamkhane",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
       },
@@ -211,6 +232,7 @@ export const users = [
         firstName: "Prathmesh",
         lastName: "Jagtap",
         username: "prathmesh_20",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
       },
@@ -219,8 +241,9 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     password: "vijaytembugade123",
@@ -235,6 +258,7 @@ export const users = [
     firstName: "Prathmesh",
     lastName: "Jagtap",
     username: "prathmesh_20",
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
     bio: "Zale sagle project -Prathmesh.",
@@ -245,8 +269,9 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     followers: [
@@ -255,14 +280,16 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
         firstName: "Narhari",
         lastName: "Kale",
         username: "NarhariKale4",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1413557784746991621/QA9i13a3_400x400.jpg",
       },
@@ -278,6 +305,7 @@ export const users = [
     firstName: "Rushikesh",
     lastName: "Tarapure",
     username: "Neo_MonkStar",
+    fallbackAvatar: "/assets/male.jpg",
     avatarURL:
       "https://pbs.twimg.com/profile_images/1529104197613805568/iKazt9pT_400x400.jpg",
     bio: "Theater la a movie bghtoy -Rushikesh.",
@@ -288,8 +316,9 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     followers: [
@@ -298,14 +327,16 @@ export const users = [
         firstName: "Yash",
         lastName: "Ghodekar",
         username: "horsemaker",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
         firstName: "Narhari",
         lastName: "Kale",
         username: "NarhariKale4",
+        fallbackAvatar: "/assets/male.jpg",
         avatarURL:
           "https://pbs.twimg.com/profile_images/1413557784746991621/QA9i13a3_400x400.jpg",
       },

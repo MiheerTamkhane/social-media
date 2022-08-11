@@ -2,12 +2,12 @@ import React from "react";
 import { Sidebar, Filter } from "../../components";
 export const HomePage = ({ page }) => {
   return (
-    <div className="flex justify-center gap-4 mt-4 m-4 maxmd:m-2">
+    <div className="mt-6 bg-gray-900 flex gap-4 justify-center max-w-full h-screen">
       <div className="maxmidmd:hidden">
         <Sidebar />
       </div>
-      <div className="h-screen flex justify-center overflow-scroll scrollbar-hide w-screen">
-        <div>{page}</div>
+      <div className="max-w-mdTwo w-mdTwo flex justify-center overflow-scroll scrollbar-hide">
+        <div className="">{page}</div>
       </div>
       <div className={`maxmd:w-full maxmd:mb-4 maxmd:hidden`}>
         <Filter />
