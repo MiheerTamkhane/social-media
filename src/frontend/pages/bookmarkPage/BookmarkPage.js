@@ -22,7 +22,7 @@ const BookmarkPage = () => {
         <Loader />
       ) : (
         <div className="flex flex-col gap-4">
-          {bookmarkedPosts.length > 0 ? (
+          {savedPosts.length > 0 ? (
             savedPosts.map((post) => {
               return <Post key={post._id} post={post} />;
             })
