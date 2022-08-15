@@ -30,7 +30,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
@@ -50,7 +50,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
@@ -79,7 +79,7 @@ export const users = [
     username: "horsemaker",
     fallbackAvatar: "/assets/male.jpg",
     avatarURL:
-      "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+      "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
     fallbackAvatar: "/assets/male.jpg",
     bio: "5th project, project nahi mpsc ka exam ho gaya hai khatam hi nahi ho raha -Yash.",
     website: "https://peerlist.io/horsemaker",
@@ -243,7 +243,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     password: "vijaytembugade123",
@@ -271,7 +271,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     followers: [
@@ -282,7 +282,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),
@@ -318,7 +318,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
     ],
     followers: [
@@ -329,7 +329,7 @@ export const users = [
         username: "horsemaker",
         fallbackAvatar: "/assets/male.jpg",
         avatarURL:
-          "ttps://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
       },
       {
         _id: uuid(),

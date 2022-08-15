@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
@@ -12,6 +12,7 @@ import {
   dislikePost,
   bookmarkPost,
   removeBookmarkPost,
+  getBookmarkPosts,
 } from "../../features";
 
 import { EditPost } from "../editPost/EditPost";
@@ -29,7 +30,7 @@ const Post = ({ post }) => {
     comments,
   } = post;
   const { authToken, user } = useSelector((state) => state.auth);
-  console.log(post);
+
   const { bookmarkedPosts: bookmarks } = useSelector(
     (state) => state.savedPosts
   );
@@ -37,6 +38,7 @@ const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
+
   const deleteHandler = (id, token) => {
     dispatch(deletePost({ postId: id, token }));
     toast.success("Post Deleted!");
@@ -76,7 +78,6 @@ const Post = ({ post }) => {
             </span>
           </div>
         </div>
-        {/* asdflkjasdflkajsdflkajsd;fjd */}
         {location.pathname !== "/bookmarks" && post.username === user.username && (
           <div className="p-2 mr-2 flex items-center ">
             <Menu

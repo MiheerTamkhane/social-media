@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -7,6 +7,7 @@ import {
   editComment,
   upvoteComment,
   downvoteComment,
+  getBookmarkPosts,
 } from "../../features";
 const PostComments = ({ post, setShowComments }) => {
   const { _id, comments } = post;

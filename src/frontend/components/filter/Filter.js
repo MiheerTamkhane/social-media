@@ -69,7 +69,7 @@ const Filter = () => {
         )}
         {toFollow.length > 0 ? (
           <div className="flex m-4 flex-col gap-3 maxmd:hidden">
-            {toFollow.map(({ _id, avatarURL, username, fallbackAvatar }) => {
+            {toFollow.map(({ _id, avatarURL, username }) => {
               return (
                 user?.username !== username && (
                   <div
@@ -81,7 +81,7 @@ const Filter = () => {
                       onClick={() => navigate(`/profile/${username}`)}
                     >
                       <img
-                        src={avatarURL || fallbackAvatar}
+                        src={avatarURL}
                         className="mr-2 rounded-full h-10 w-10"
                         alt={username + "Avtar"}
                       />

@@ -10,6 +10,7 @@ const initialState = {
 
 const getAllPosts = createAsyncThunk("users/getAllPosts", async () => {
   const { data } = await axios.get("/api/posts");
+
   return data;
 });
 
@@ -105,6 +106,19 @@ const dislikePost = createAsyncThunk(
       return data;
     } catch (err) {
       return rejectWithValue("Couldn't like the post!");
+    }
+  }
+);
+
+const getAllComments = createAsyncThunk(
+  "post/allComments",
+  async ({ postId }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/api/comments/${postId}`);
+
+      return data;
+    } catch (err) {
+      return rejectWithValue("Can't get Comment!");
     }
   }
 );
@@ -262,6 +276,13 @@ const postsSlice = createSlice({
       state.error = payload;
       toast.error(state.error);
     },
+    [getAllComments.fulfilled]: (state, { payload }) => {
+      state.posts = payload.posts;
+    },
+    [getAllComments.rejected]: (state, { payload }) => {
+      state.error = payload;
+      toast.error(state.error);
+    },
     [addComment.fulfilled]: (state, { payload }) => {
       state.posts = payload.posts;
     },
@@ -308,6 +329,7 @@ export {
   editPost,
   likePost,
   dislikePost,
+  getAllComments,
   addComment,
   deleteComment,
   editComment,
