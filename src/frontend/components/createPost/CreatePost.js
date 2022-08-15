@@ -33,7 +33,7 @@ const CreatePost = () => {
   return (
     <div className="bg-gray-800 rounded-lg h-80 font-['rajdhani'] relative">
       <Tabs>
-        <Tab title="Status">
+        <Tab title="CREATE POST">
           <textarea
             onChange={(e) =>
               setUserPost({ ...userPost, content: e.target.value })
@@ -43,38 +43,6 @@ const CreatePost = () => {
             className="h-48 w-full bg-gray-800 px-2 border-none outline-none tracking-wider resize-none scrollbar-hide"
             placeholder="Hi Miheer Tamkhane! share your posts here"
           ></textarea>
-        </Tab>
-        <Tab title="Link">
-          <span>Text : </span>
-          <input
-            disabled
-            type="text"
-            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
-            placeholder="Hi Miheer Tamkhane! share your posts here"
-          />
-          <span>Link : </span>
-          <input
-            disabled
-            type="text"
-            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
-            placeholder="Paste link here"
-          />
-        </Tab>
-        <Tab title="Video">
-          <span>Text : </span>
-          <input
-            disabled
-            type="text"
-            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
-            placeholder="Hi Miheer Tamkhane! share your posts here"
-          />
-          <span>Link : </span>
-          <input
-            disabled
-            type="text"
-            className="bg-gray-800 p-2 border border-gray-400 rounded-lg outline-none tracking-wider w-full"
-            placeholder="Paste link here"
-          />
         </Tab>
       </Tabs>
       <div>
@@ -101,7 +69,7 @@ const CreatePost = () => {
 
 const style = {
   notSelected: `text-gray-400`,
-  default: `py-4 text-center border-gray-800 outline-none cursor-pointer px-4 inline-block text-gray-300 focus:outline-none w-1/3 `,
+  default: `py-4 text-center border-gray-800 outline-none cursor-pointer px-4 inline-block text-gray-300 focus:outline-none w-full `,
   selected: `border-b-4 border-lime-400 text-white`,
 };
 
@@ -137,7 +105,7 @@ function Tab({ children, selected }) {
   return (
     <div
       hidden={!selected}
-      className="pt-3 px-2 border-t h-52 border-b text-gray-100 border-gray-500"
+      className="w-full pt-3 px-2 border-t h-52 border-b text-gray-100 border-gray-500"
     >
       {children}
     </div>
