@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="app bg-gray-900 h-max">
+    <div className="app bg-gray-900 min-h-screen">
       <Navbar />
       <MyRoutes />
       <Toaster

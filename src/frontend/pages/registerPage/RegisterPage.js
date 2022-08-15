@@ -4,7 +4,7 @@ import { Login, Signup } from "../../components";
 const RegisterPage = () => {
   const [flag, setFlag] = useState(true);
   return (
-    <div className="min-h-screen max-h-full register-page bg-register-bg bg-left text-white maxmd:flex maxmd:flex-col flex items-center">
+    <div className="max-h-full register-page bg-register-bg bg-center bg-cover bg-no-repeat text-white maxmd:flex maxmd:flex-col flex items-center py-6">
       <div className=" w-3/5 maxmd:w-full flex flex-col items-center">
         <div className="register-div w-4/5 p-4 maxmd:w-full maxmd:p-2 maxmd:my-4 text-center ">
           <h1 className="text-2xl">WELCOME TO</h1>

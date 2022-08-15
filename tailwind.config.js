@@ -8,7 +8,7 @@ module.exports = {
         jost: ["Jost", "sans-serif"],
       },
       backgroundImage: {
-        "register-bg": "url('/public/assets/register-bg.jpg')",
+        "register-bg": "url('/public/assets/background.jpg')",
       },
       spacing: {
         mdTwo: "26rem",
