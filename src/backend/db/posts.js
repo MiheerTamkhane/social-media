@@ -35,7 +35,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
       ],
       dislikedBy: [],
@@ -60,7 +60,7 @@ export const posts = [
         lastName: "Ghodekar",
         username: "horsemaker",
         avatarURL:
-          "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+          "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         text: "That gohan is amazing looking",
         votes: {
           upvotedBy: [],
@@ -90,7 +90,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
         {
           _id: uuid(),
@@ -159,7 +159,7 @@ export const posts = [
     lastName: "Ghodekar",
     username: "horsemaker",
     avatarURL:
-      "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+      "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
     createdAt: "06/03/2022".toString(),
     updatedAt: formatDate(),
     comments: [
@@ -201,7 +201,7 @@ export const posts = [
           lastName: "Ghodekar",
           username: "horsemaker",
           avatarURL:
-            "https://pbs.twimg.com/profile_images/1528089482364612608/rTGaahib_400x400.jpg",
+            "https://pbs.twimg.com/profile_images/1553717324557205504/c1DTj7BM_400x400.jpg",
         },
         {
           _id: uuid(),
@@ -288,4 +288,59 @@ export const posts = [
       },
     ],
   },
+  // POST 5
+
+  // POST 6
+
+  {
+    _id: uuid(),
+    content: "What do you call a man with no body and nose?",
+    likes: {
+      likeCount: 2,
+      likedBy: [
+        {
+          _id: uuid(),
+          firstName: "Prathmesh",
+          lastName: "Jagtap",
+          username: "prathmesh_20",
+          avatarURL:
+            "https://pbs.twimg.com/profile_images/1511020219250376713/zFRXcl9k_400x400.jpg",
+        },
+
+        {
+          _id: uuid(),
+          firstName: "Vijay",
+          lastName: "Tembugade",
+          username: "vijaytembugade",
+          avatarURL:
+            "https://pbs.twimg.com/profile_images/1387873189917720581/3NfEA_sE_400x400.jpg",
+        },
+      ],
+      dislikedBy: [],
+    },
+    firstName: "Narhari",
+    lastName: "Kale",
+    username: "NarhariKale4",
+    avatarURL:
+      "https://pbs.twimg.com/profile_images/1413557784746991621/QA9i13a3_400x400.jpg",
+    createdAt: "05/28/2022".toString(),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        firstName: "Miheer",
+        lastName: "Tamkhane",
+        username: "miheer",
+        avatarURL:
+          "https://c4.wallpaperflare.com/wallpaper/458/230/473/dragon-ball-super-son-goku-ultra-instinct-dragon-ball-wallpaper-preview.jpg",
+        text: "No-One-Knows",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+
+  // POST 6
 ];

@@ -15,7 +15,7 @@ export const getPostCommentsHandler = function (schema, request) {
   const postId = request.params.postId;
   try {
     const post = schema.posts.findBy({ _id: postId }).attrs;
-    return new Response(200, {}, { comments: post.comments });
+    return new Response(200, {}, { posts: this.db.posts });
   } catch (error) {
     return new Response(
       500,

@@ -11,7 +11,7 @@ module.exports = {
         "register-bg": "url('/public/assets/register-bg.jpg')",
       },
       spacing: {
-        100: "26rem",
+        mdTwo: "26rem",
       },
     },
     screens: {

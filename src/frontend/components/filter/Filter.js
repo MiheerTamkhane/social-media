@@ -7,15 +7,17 @@ import {
   filterByDate,
   filterByTrending,
   getBookmarkPosts,
+  getSingleUser,
 } from "../../features";
 
 const Filter = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { users } = useSelector((state) => state.users);
+
   const { user, authToken } = useSelector((state) => state.auth);
   const location = useLocation();
-
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
@@ -29,7 +31,6 @@ const Filter = () => {
       (man) => !man.followers.find((item) => item.username === user.username)
     )
     .filter((item) => item?.username !== user?.username);
-  console.log(toFollow);
   return (
     <aside className="w-72 maxmd:w-full">
       <div className="overflow-y-auto  text-white bg-gray-50 dark:bg-gray-800 mx-auto rounded-lg">
@@ -80,9 +81,9 @@ const Filter = () => {
                       onClick={() => navigate(`/profile/${username}`)}
                     >
                       <img
-                        src={avatarURL ? avatarURL : "/assets/male.jpg"}
+                        src={avatarURL}
                         className="mr-2 rounded-full h-10 w-10"
-                        alt={`${username}-avatar`}
+                        alt={username + "Avtar"}
                       />
                       <span className="text-md tracking-wide font-['jost'] cursor-pointer">
                         {username}
@@ -97,6 +98,7 @@ const Filter = () => {
                               token: authToken,
                             })
                           );
+                          dispatch(getSingleUser(user.username));
                         }}
                         className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-3 py-1 rounded dark:bg-purple-200 dark:text-purple-900 absolute right-0 bottom-4 cursor-pointer"
                       >

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
@@ -12,15 +12,25 @@ import {
   dislikePost,
   bookmarkPost,
   removeBookmarkPost,
+  getBookmarkPosts,
 } from "../../features";
 
 import { EditPost } from "../editPost/EditPost";
 import { PostComments } from "../postComments/PostComments";
 
 const Post = ({ post }) => {
-  const { _id, username, content, avatarURL, createdAt, likes, comments } =
-    post;
+  const {
+    _id,
+    username,
+    content,
+    avatarURL,
+    fallbackAvatar,
+    createdAt,
+    likes,
+    comments,
+  } = post;
   const { authToken, user } = useSelector((state) => state.auth);
+
   const { bookmarkedPosts: bookmarks } = useSelector(
     (state) => state.savedPosts
   );
@@ -28,6 +38,7 @@ const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
+
   const deleteHandler = (id, token) => {
     dispatch(deletePost({ postId: id, token }));
     toast.success("Post Deleted!");
@@ -54,7 +65,7 @@ const Post = ({ post }) => {
       <div className="flex justify-between relative">
         <div className="p-2 ml-4 flex w-full items-center">
           <img
-            src={avatarURL}
+            src={avatarURL || fallbackAvatar}
             className="mr-1 rounded-full h-10 w-10"
             alt={username + "Avtar"}
           />
@@ -67,7 +78,7 @@ const Post = ({ post }) => {
             </span>
           </div>
         </div>
-        {location.pathname !== "/bookmarks" && (
+        {location.pathname !== "/bookmarks" && post.username === user.username && (
           <div className="p-2 mr-2 flex items-center ">
             <Menu
               menuButton={
